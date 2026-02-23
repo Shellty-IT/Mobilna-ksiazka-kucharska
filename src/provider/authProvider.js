@@ -1,40 +1,35 @@
-import React, {useState, useEffect} from "react";
-import {authMethods} from "../firebase/authMethods";
-
+import React, { useState } from "react";
+import { authMethods } from "../firebase/authMethods";
 
 export const firebaseAuth = React.createContext();
 
 const AuthProvider = (props) => {
-    const initState = {email: "", password: ""};
-    const [inputs, setInputs] = useState(initState);
+    const [inputs, setInputs] = useState({ email: "", password: "" });
     const [errors, setErrors] = useState([]);
     const [token, setToken] = useState(null);
 
-    const handleSingUp = () => {
-        console.log("handleSingUp");
-        console.log(inputs);
-        authMethods.singup(inputs.email, inputs.password, setToken, setErrors);
-        console.log(errors, token)
-    }
+    const handleSignUp = () => {
+        authMethods.signup(inputs.email, inputs.password, setToken, setErrors);
+    };
 
-    const handleSingIn = () => {
-        console.log("handleSingIn");
-        console.log(inputs);
-        authMethods.singin(inputs.email, inputs.password, setToken, setErrors);
-        console.log(errors, token)
-    }
+    const handleSignIn = () => {
+        authMethods.signin(inputs.email, inputs.password, setToken, setErrors);
+    };
 
     return (
         <firebaseAuth.Provider
             value={{
-                test: "context is working",
-                handleSingUp,
-                handleSingIn,
+                handleSignUp,
+                handleSignIn,
                 inputs,
-                setInputs
-            }}>
+                setInputs,
+                errors,
+                token,
+            }}
+        >
             {props.children}
         </firebaseAuth.Provider>
-    )
-}
+    );
+};
+
 export default AuthProvider;

@@ -1,59 +1,47 @@
-import firebase from 'firebase'
+import { database } from "./firebase/firebaseIndex";
+import { ref, get } from "firebase/database";
 
 export async function getVegetables() {
+    const snapshot = await get(ref(database, "vegetables"));
     let vegetables = [];
-    const database = firebase.database().ref('vegetables');
-    const snapshot = await database.once('value');
-
-    snapshot.forEach(veg => {
+    snapshot.forEach((veg) => {
         vegetables.push(veg.val());
-    })
-
-    return  vegetables;
+    });
+    return vegetables;
 }
 
 export async function getPasta() {
+    const snapshot = await get(ref(database, "pasta"));
     let pasta = [];
-    const database = firebase.database().ref('pasta');
-    const snapshot = await database.once('value');
-
-    snapshot.forEach(pas => {
+    snapshot.forEach((pas) => {
         pasta.push(pas.val());
-    })
-
+    });
     return pasta;
 }
 
 export async function getVarious() {
+    const snapshot = await get(ref(database, "other"));
     let various = [];
-    const database = firebase.database().ref('other');
-    const snapshot = await database.once ('value');
-
-    snapshot.forEach(vario => {
+    snapshot.forEach((vario) => {
         various.push(vario.val());
-    })
-
+    });
     return various;
 }
 
 export async function getRecipes() {
+    const snapshot = await get(ref(database, "recipes"));
     let recipes = [];
-    const database = firebase.database().ref("recipes");
-    const snapshot =  await database.once ("value");
-        snapshot.forEach(recipe => {
-            recipes.push(recipe.val());
-        })
+    snapshot.forEach((recipe) => {
+        recipes.push(recipe.val());
+    });
     return recipes;
 }
 
 export async function getGroats() {
+    const snapshot = await get(ref(database, "groats"));
     let groats = [];
-    const database = firebase.database().ref("groats");
-    const snapshot =  await database.once ("value");
-    snapshot.forEach(groat => {
+    snapshot.forEach((groat) => {
         groats.push(groat.val());
-    })
+    });
     return groats;
 }
-
-

@@ -6,7 +6,7 @@ import "./login/Login.css";
 import Loader from "./loader/Loader";
 import { validateEmailPassword } from "../utils/validators";
 import { signUp } from "../firebase/authMethods";
-import { authStates } from "./auth";
+import { withAuth, authStates } from "./auth";
 import en from "../utils/i18n";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,17 +21,17 @@ const useStyles = makeStyles((theme) => ({
 const Register = (props) => {
     const classes = useStyles();
     const [error, setError] = useState("");
-    const [values, setValues] = useState({ 
-        email: "", 
-        password: "", 
-        confirmPassword: "" 
+    const [values, setValues] = useState({
+        email: "",
+        password: "",
+        confirmPassword: ""
     });
 
     const handleInputChange = (event) => {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-        
+
         setValues({
             ...values,
             [name]: value
@@ -160,4 +160,4 @@ const Register = (props) => {
     );
 };
 
-export default Register;
+export default withAuth(Register);

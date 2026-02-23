@@ -1,35 +1,27 @@
-import firebase from 'firebase'
-import 'firebase/auth'
-import 'firebase/app';
+import { auth } from "../firebase/firebaseIndex";
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut as firebaseSignOut,
+    onAuthStateChanged,
+} from "firebase/auth";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBtwnJGffDi1J-YBrPWlU0aMjknVQpIVuc",
-  authDomain: "pomocnik-cc6da.firebaseapp.com",
-  projectId: "pomocnik-cc6da",
-  storageBucket: "pomocnik-cc6da.appspot.com",
-  messagingSenderId: "379679255811",
-  appId: "1:379679255811:web:530dc719262d7e7f8d8d36",
-};
-export function initialize() {
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  }
-}
+// Nie potrzeba initialize() - app inicjalizuje się przy imporcie
 
 export function attachAuthListener(handler) {
-  return firebase.auth().onAuthStateChanged((user) => {
-    handler(user);
-  });
+    return onAuthStateChanged(auth, (user) => {
+        handler(user);
+    });
 }
 
 export async function createNewUser(email, password) {
-  await firebase.auth().createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(auth, email, password);
 }
 
 export async function signIn(email, password) {
-  await firebase.auth().signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(auth, email, password);
 }
 
 export async function signOut() {
-  await firebase.auth().signOut();
+    await firebaseSignOut(auth);
 }

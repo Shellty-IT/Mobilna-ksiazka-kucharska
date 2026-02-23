@@ -6,7 +6,7 @@ import "./Login.css";
 import Loader from "../loader/Loader";
 import { validateEmailPassword } from "../../utils/validators";
 import { signIn } from "../../firebase/authMethods";
-import { authStates } from "../auth";
+import { withAuth, authStates } from "../auth";
 import en from "../../utils/i18n";
 
 const useStyles = makeStyles((theme) => ({
@@ -129,4 +129,4 @@ const Login = (props) => {
     );
 };
 
-export default Login;
+export default withAuth(Login);
