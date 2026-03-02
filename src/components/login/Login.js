@@ -34,12 +34,8 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        console.log("Login handleSubmit called");
-        console.log("Email:", values.email);
-
         const errorMsg = validateEmailPassword(values.email, values.password);
         if (errorMsg) {
-            console.log("Validation error:", errorMsg);
             setError(errorMsg);
             return;
         }
@@ -48,11 +44,8 @@ const Login = () => {
         setError("");
 
         try {
-            console.log("Calling signIn...");
-            const result = await signIn(values.email, values.password);
-            console.log("SignIn result:", result);
+            await signIn(values.email, values.password);
         } catch (e) {
-            console.log("SignIn error:", e.code, e.message);
             const errorMessages = {
                 "auth/user-not-found": "Nie znaleziono użytkownika",
                 "auth/wrong-password": "Nieprawidłowe hasło",

@@ -18,15 +18,11 @@ export const useAuth = () => {
 };
 
 const AuthProvider = ({ children }) => {
-    console.log("AuthProvider mounted");
-
     const [user, setUser] = useState(null);
     const [authState, setAuthState] = useState(authStates.INITIAL_VALUE);
 
     useEffect(() => {
-        console.log("AuthProvider useEffect - attaching listener");
         const unsubscribe = attachAuthListener((currentUser) => {
-            console.log("Auth state changed:", currentUser ? "logged in" : "logged out");
             setUser(currentUser);
             setAuthState(
                 currentUser ? authStates.LOGGED_IN : authStates.LOGGED_OUT
