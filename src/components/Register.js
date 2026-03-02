@@ -43,6 +43,10 @@ const Register = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        console.log("=== handleSubmit wywołany ===");
+        console.log("Email:", values.email);
+        console.log("Password length:", values.password.length);
+
         if (values.password !== values.confirmPassword) {
             setError(en.ERRORS.PASSWORD_MISMATCH);
             return;
@@ -51,13 +55,23 @@ const Register = (props) => {
         const errorMsg = validateEmailPassword(values.email, values.password);
 
         if (errorMsg) {
+            console.log("Błąd walidacji:", errorMsg);
             setError(errorMsg);
             return;
         }
 
+        console.log("=== Wywołuję signUp ===");
+
         signUp(values.email, values.password)
+            .then((result) => {
+                console.log("=== SUKCES ===", result);
+            })
             .catch((e) => {
-                setError("Błąd podczas rejestracji. Spróbuj ponownie.");
+                console.error("=== BŁĄD FIREBASE ===");
+                console.error("Kod:", e.code);
+                console.error("Wiadomość:", e.message);
+                console.error("Cały błąd:", e);
+                setError(`Błąd: ${e.code} - ${e.message}`);
             });
     };
 
