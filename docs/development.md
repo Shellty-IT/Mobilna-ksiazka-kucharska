@@ -17,7 +17,7 @@
    - Globalne style są w `src/global.css` oraz `src/components/All.css`.
 
 3. **Zarządzanie autoryzacją**:
-   - Korzystaj z `useAuth` (z `src/provider/authProvider.js`) aby uzyskać dostęp do aktualnie zalogowanego użytkownika lub funkcji logowania/wylogowania.
+   - Korzystaj z `useAuth` (z `src/provider/AuthProvider.js`) aby uzyskać dostęp do aktualnie zalogowanego użytkownika lub funkcji logowania/wylogowania.
 
 ## Testowanie
 - Do testów jednostkowych wykorzystywany jest `Jest` oraz `@testing-library/react`.
