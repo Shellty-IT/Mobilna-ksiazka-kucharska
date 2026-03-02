@@ -9,10 +9,10 @@ import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Menu from "@material-ui/core/Menu";
-import { signOut } from "../../utils/firebase";
+import { signOut } from "../../firebase/authMethods";
 import "./Navbar.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,12 +33,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Navbar = (props) => {
+const Navbar = () => {
     const classes = useStyles();
+    const { authState } = useAuth();
     const [anchorEl1, setAnchorEl1] = useState(null);
     const [mobileView, setMobileView] = useState(false);
     const [open, setOpen] = useState(false);
     const isMenuOpen = Boolean(anchorEl1);
+
     useEffect(() => {
         const setResponsive = () => {
             setMobileView(window.innerWidth < 900);
@@ -49,10 +51,8 @@ const Navbar = (props) => {
     }, []);
 
     const handleSignOut = () => {
-        signOut()
-            .catch((e) => {
-                // handle error
-            });
+        signOut().catch((e) => {
+        });
     };
 
     const handleProfileMenuOpen = (event) => {
@@ -189,7 +189,7 @@ const Navbar = (props) => {
                 </div>
 
                 <div className="navbar-user-section">
-                    {props.authState === authStates.LOGGED_IN ? (
+                    {authState === authStates.LOGGED_IN ? (
                         <IconButton
                             edge="end"
                             aria-label="account of current user"
@@ -216,4 +216,4 @@ const Navbar = (props) => {
     );
 };
 
-export default withAuth(Navbar);
+export default Navbar;

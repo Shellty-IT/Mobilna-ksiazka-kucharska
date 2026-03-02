@@ -12,7 +12,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import How from "../how/How";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 
 const useStyles = makeStyles((theme) => ({
@@ -111,7 +111,8 @@ const PastaDetails = ({ item }) => (
     </Container>
 );
 
-const SinglePasta = (props) => {
+const SinglePasta = () => {
+    const { authState } = useAuth();
     const { slug } = useParams();
     const [item, setItem] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -131,15 +132,15 @@ const SinglePasta = (props) => {
         };
     }, [slug]);
 
-    if (props.authState === authStates.INITIAL_VALUE || loading) return <Loader />;
+    if (authState === authStates.INITIAL_VALUE || loading) return <Loader />;
     if (!item) return <Container maxWidth="sm"><Typography variant="h6">Nie znaleziono</Typography></Container>;
 
     return (
-        <div className="single-page"> 
+        <div className="single-page">
             <How />
             <PastaDetails item={item} />
         </div>
     );
 };
 
-export default withAuth(SinglePasta);
+export default SinglePasta;

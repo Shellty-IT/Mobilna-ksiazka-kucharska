@@ -6,7 +6,7 @@ import "./login/Login.css";
 import Loader from "./loader/Loader";
 import { validateEmailPassword } from "../utils/validators";
 import { signUp } from "../firebase/authMethods";
-import { withAuth, authStates } from "./auth";
+import { useAuth, authStates } from "../provider/AuthProvider";
 import en from "../utils/i18n";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,9 +18,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Register = (props) => {
+const Register = () => {
     const classes = useStyles();
+    const { authState } = useAuth();
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const [values, setValues] = useState({
         email: "",
         password: "",
@@ -28,24 +30,13 @@ const Register = (props) => {
     });
 
     const handleInputChange = (event) => {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-
-        setValues({
-            ...values,
-            [name]: value
-        });
-
+        const { name, value } = event.target;
+        setValues({ ...values, [name]: value });
         if (error) setError("");
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-
-        console.log("=== handleSubmit wywołany ===");
-        console.log("Email:", values.email);
-        console.log("Password length:", values.password.length);
 
         if (values.password !== values.confirmPassword) {
             setError(en.ERRORS.PASSWORD_MISMATCH);
@@ -53,34 +44,36 @@ const Register = (props) => {
         }
 
         const errorMsg = validateEmailPassword(values.email, values.password);
-
         if (errorMsg) {
-            console.log("Błąd walidacji:", errorMsg);
             setError(errorMsg);
             return;
         }
 
-        console.log("=== Wywołuję signUp ===");
+        setLoading(true);
+        setError("");
 
-        signUp(values.email, values.password)
-            .then((result) => {
-                console.log("=== SUKCES ===", result);
-            })
-            .catch((e) => {
-                console.error("=== BŁĄD FIREBASE ===");
-                console.error("Kod:", e.code);
-                console.error("Wiadomość:", e.message);
-                console.error("Cały błąd:", e);
-                setError(`Błąd: ${e.code} - ${e.message}`);
-            });
+        try {
+            await signUp(values.email, values.password);
+        } catch (e) {
+            const errorMessages = {
+                "auth/email-already-in-use": "Ten adres e-mail jest już zajęty",
+                "auth/invalid-email": "Nieprawidłowy adres e-mail",
+                "auth/weak-password": "Hasło jest za słabe (min. 6 znaków)",
+                "auth/operation-not-allowed": "Rejestracja jest wyłączona",
+                "auth/network-request-failed": "Błąd sieci. Sprawdź połączenie",
+            };
+            setError(errorMessages[e.code] || `Błąd rejestracji: ${e.message}`);
+        } finally {
+            setLoading(false);
+        }
     };
 
-    if (props.authState === authStates.INITIAL_VALUE) {
+    if (authState === authStates.INITIAL_VALUE) {
         return <Loader />;
     }
 
-    if (props.authState === authStates.LOGGED_IN) {
-        return <Redirect to="/"></Redirect>;
+    if (authState === authStates.LOGGED_IN) {
+        return <Redirect to="/" />;
     }
 
     return (
@@ -91,7 +84,7 @@ const Register = (props) => {
                     <p className="login-subtitle">Utwórz nowe konto i zacznij gotować!</p>
                 </div>
                 <div className="login-card">
-                    <form className={classes.root} noValidate autoComplete="off">
+                    <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <TextField
@@ -103,6 +96,7 @@ const Register = (props) => {
                                     label="Adres e-mail"
                                     variant="outlined"
                                     fullWidth
+                                    disabled={loading}
                                     className="login-input"
                                     InputLabelProps={{
                                         shrink: true,
@@ -119,6 +113,7 @@ const Register = (props) => {
                                     label="Hasło"
                                     variant="outlined"
                                     fullWidth
+                                    disabled={loading}
                                     className="login-input"
                                     InputLabelProps={{
                                         shrink: true,
@@ -135,6 +130,7 @@ const Register = (props) => {
                                     label="Potwierdź hasło"
                                     variant="outlined"
                                     fullWidth
+                                    disabled={loading}
                                     className="login-input"
                                     InputLabelProps={{
                                         shrink: true,
@@ -150,12 +146,13 @@ const Register = (props) => {
                             )}
                             <Grid item xs={12}>
                                 <Button
-                                    onClick={handleSubmit}
+                                    type="submit"
                                     variant="contained"
                                     fullWidth
+                                    disabled={loading}
                                     className="login-button"
                                 >
-                                    Zarejestruj się
+                                    {loading ? "Rejestracja..." : "Zarejestruj się"}
                                 </Button>
                             </Grid>
                             <Grid item xs={12}>
@@ -174,4 +171,4 @@ const Register = (props) => {
     );
 };
 
-export default withAuth(Register);
+export default Register;

@@ -1,18 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./How.css";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
-import { Redirect } from "react-router-dom";
 
-const How = (props) => {
-    if (props.authState === authStates.INITIAL_VALUE) {
+const How = () => {
+    const { authState } = useAuth();
+
+    if (authState === authStates.INITIAL_VALUE) {
         return <Loader />;
     }
-    if (props.authState === authStates.LOGGED_OUT) {
-        return <Redirect to="/logowanie"></Redirect>;
+
+    if (authState === authStates.LOGGED_OUT) {
+        return <Redirect to="/logowanie" />;
     }
 
     return (
@@ -96,6 +98,6 @@ const How = (props) => {
             </div>
         </>
     );
-
 };
-export default withAuth(How);
+
+export default How;

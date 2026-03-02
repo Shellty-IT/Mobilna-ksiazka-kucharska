@@ -1,17 +1,20 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 import "./Intro.css";
 
-const Intro = (props) => {
-    if (props.authState === authStates.INITIAL_VALUE) {
+const Intro = () => {
+    const { authState } = useAuth();
+
+    if (authState === authStates.INITIAL_VALUE) {
         return <Loader />;
     }
 
-    if (props.authState === authStates.LOGGED_OUT) {
-        return <Redirect to="/logowanie"></Redirect>;
+    if (authState === authStates.LOGGED_OUT) {
+        return <Redirect to="/logowanie" />;
     }
+
     return (
         <>
             <div className="intro-container">
@@ -69,4 +72,4 @@ const Intro = (props) => {
     );
 };
 
-export default withAuth(Intro);
+export default Intro;

@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getRecipes } from "../../Api";
 import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 import "./SingleRecipe.css";
 
-const SingleRecipe = (props) => {
+const SingleRecipe = () => {
+    const { authState } = useAuth();
+    const { slug } = useParams();
     const [recipes, setRecipes] = useState([]);
-    const slug = parseInt(props.match.params.slug);
 
     useEffect(() => {
         async function fetchData() {
             const result = await getRecipes();
             setRecipes(result);
         }
-
         fetchData();
     }, []);
 
-    if (props.authState === authStates.INITIAL_VALUE) {
+    if (authState === authStates.INITIAL_VALUE) {
         return <Loader />;
     }
 
-    const recipe = recipes.find((r) => r.number === slug);
+    const recipe = recipes.find((r) => r.number === parseInt(slug, 10));
 
     if (!recipe) return null;
 
@@ -65,4 +66,4 @@ const SingleRecipe = (props) => {
     );
 };
 
-export default withAuth(SingleRecipe);
+export default SingleRecipe;

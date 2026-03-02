@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import Countdown from "react-countdown";
-import { Container, Button} from "@material-ui/core";
+import { Container, Button } from "@material-ui/core";
 import { Card } from "@material-ui/core";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 import { Redirect } from "react-router-dom";
 import useSound from "use-sound";
 import beep from "../../assets/alarm.mp3";
 import "./Counterdown.css";
 
-const CounterDown = (props) => {
+const CounterDown = () => {
+    const { authState } = useAuth();
     const [start, setStart] = useState(false);
     const [value, setValue] = useState(0);
     const [play, { stop }] = useSound(beep);
@@ -39,6 +40,7 @@ const CounterDown = (props) => {
             );
         }
     };
+
     const handleClick = () => {
         if (value > 0) {
             setStart((prev) => !prev);
@@ -52,12 +54,12 @@ const CounterDown = (props) => {
         setStart((prev) => !prev);
     };
 
-    if (props.authState === authStates.INITIAL_VALUE) {
+    if (authState === authStates.INITIAL_VALUE) {
         return <Loader />;
     }
 
-    if (props.authState === authStates.LOGGED_OUT) {
-        return <Redirect to="/logowanie"></Redirect>;
+    if (authState === authStates.LOGGED_OUT) {
+        return <Redirect to="/logowanie" />;
     }
 
     return (
@@ -119,4 +121,5 @@ const CounterDown = (props) => {
         </div>
     );
 };
-export default withAuth(CounterDown);
+
+export default CounterDown;

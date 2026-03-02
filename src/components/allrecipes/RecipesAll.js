@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { getRecipes } from "../../Api";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Container from "@material-ui/core/Container";
 import { Card } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Loader from "../loader/Loader";
-import { Redirect } from "react-router-dom";
 import "./RecipesAll.css";
 
-const RecipesAll = (props) => {
+const RecipesAll = () => {
+    const { authState } = useAuth();
     const [recipes, setRecipes] = useState([]);
     const [recipeAll, setRecipesAll] = useState([]);
 
@@ -22,15 +22,14 @@ const RecipesAll = (props) => {
             setRecipes(result);
             setRecipesAll(result);
         }
-
         fetchData();
     }, []);
 
-    if (props.authState === authStates.INITIAL_VALUE) {
+    if (authState === authStates.INITIAL_VALUE) {
         return <Loader />;
     }
 
-    if (props.authState === authStates.LOGGED_OUT) {
+    if (authState === authStates.LOGGED_OUT) {
         return <Redirect to="/logowanie" />;
     }
 
@@ -41,6 +40,7 @@ const RecipesAll = (props) => {
         );
         setRecipes(filtered);
     };
+
     return (
         <div className="recipes-all-wrapper">
             <Container className="recipes-all-container" maxWidth="md">
@@ -91,4 +91,4 @@ const RecipesAll = (props) => {
     );
 };
 
-export default withAuth(RecipesAll);
+export default RecipesAll;

@@ -7,7 +7,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import How from "../how/How";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 import { PageTitle, Section, ExpandableSection } from "../common/DetailsParts";
 
@@ -52,7 +52,8 @@ const GroatDetails = ({ item }) => (
     </Container>
 );
 
-const SingleGroat = (props) => {
+const SingleGroat = () => {
+    const { authState } = useAuth();
     const { slug } = useParams();
     const [item, setItem] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -70,7 +71,7 @@ const SingleGroat = (props) => {
         return () => { active = false; };
     }, [slug]);
 
-    if (props.authState === authStates.INITIAL_VALUE || loading) return <Loader />;
+    if (authState === authStates.INITIAL_VALUE || loading) return <Loader />;
     if (!item) return <Container maxWidth="sm"><Typography variant="h6">Nie znaleziono</Typography></Container>;
 
     return (
@@ -81,4 +82,4 @@ const SingleGroat = (props) => {
     );
 };
 
-export default withAuth(SingleGroat);
+export default SingleGroat;

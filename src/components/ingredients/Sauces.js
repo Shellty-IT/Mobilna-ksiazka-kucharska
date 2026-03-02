@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 import "./Sauces.css";
 
@@ -11,7 +11,9 @@ const SAUCES = [
     { id: 8, name: "Sos tzaziki", path: "/funkcje/znajdz/przepisy/8" },
 ];
 
-const Sauces = ({ authState }) => {
+const Sauces = () => {
+    const { authState } = useAuth();
+
     if (authState === authStates.INITIAL_VALUE) {
         return <Loader />;
     }
@@ -36,4 +38,4 @@ const Sauces = ({ authState }) => {
     );
 };
 
-export default withAuth(Sauces);
+export default Sauces;

@@ -8,10 +8,11 @@ import { Card } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 
-const Various = (props) => {
+const Various = () => {
+    const { authState } = useAuth();
     const [various, setVarious] = useState([]);
 
     useEffect(() => {
@@ -22,7 +23,7 @@ const Various = (props) => {
         fetchData();
     }, []);
 
-    if (props.authState === authStates.INITIAL_VALUE) {
+    if (authState === authStates.INITIAL_VALUE) {
         return <Loader />;
     }
 
@@ -57,4 +58,4 @@ const Various = (props) => {
     );
 };
 
-export default withAuth(Various);
+export default Various;

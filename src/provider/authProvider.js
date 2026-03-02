@@ -1,34 +1,46 @@
-import React, { useState } from "react";
-import { authMethods } from "../firebase/authMethods";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { attachAuthListener } from "../firebase/authMethods";
 
-export const firebaseAuth = React.createContext();
+const AuthContext = createContext();
 
-const AuthProvider = (props) => {
-    const [inputs, setInputs] = useState({ email: "", password: "" });
-    const [errors, setErrors] = useState([]);
-    const [token, setToken] = useState(null);
+export const authStates = {
+    INITIAL_VALUE: "unknown",
+    LOGGED_IN: "logged_in",
+    LOGGED_OUT: "logged_out",
+};
 
-    const handleSignUp = () => {
-        authMethods.signup(inputs.email, inputs.password, setToken, setErrors);
-    };
+export const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error("useAuth must be used within AuthProvider");
+    }
+    return context;
+};
 
-    const handleSignIn = () => {
-        authMethods.signin(inputs.email, inputs.password, setToken, setErrors);
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [authState, setAuthState] = useState(authStates.INITIAL_VALUE);
+
+    useEffect(() => {
+        const unsubscribe = attachAuthListener((currentUser) => {
+            setUser(currentUser);
+            setAuthState(
+                currentUser ? authStates.LOGGED_IN : authStates.LOGGED_OUT
+            );
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    const value = {
+        user,
+        authState,
     };
 
     return (
-        <firebaseAuth.Provider
-            value={{
-                handleSignUp,
-                handleSignIn,
-                inputs,
-                setInputs,
-                errors,
-                token,
-            }}
-        >
-            {props.children}
-        </firebaseAuth.Provider>
+        <AuthContext.Provider value={value}>
+            {children}
+        </AuthContext.Provider>
     );
 };
 

@@ -7,7 +7,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import How from "../how/How";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 import { PageTitle, Section, ExpandableSection } from "../common/DetailsParts";
 
@@ -35,7 +35,8 @@ const VegeDetails = ({ item }) => (
     </Container>
 );
 
-const SingleVege = (props) => {
+const SingleVege = () => {
+    const { authState } = useAuth();
     const { slug } = useParams();
     const [item, setItem] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -53,15 +54,15 @@ const SingleVege = (props) => {
         return () => { active = false; };
     }, [slug]);
 
-    if (props.authState === authStates.INITIAL_VALUE || loading) return <Loader />;
+    if (authState === authStates.INITIAL_VALUE || loading) return <Loader />;
     if (!item) return <Container maxWidth="sm"><Typography variant="h6">Nie znaleziono</Typography></Container>;
 
     return (
-        <div className="single-page"> 
+        <div className="single-page">
             <How />
             <VegeDetails item={item} />
         </div>
     );
 };
 
-export default withAuth(SingleVege);
+export default SingleVege;

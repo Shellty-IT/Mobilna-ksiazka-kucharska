@@ -6,7 +6,7 @@ import "./Login.css";
 import Loader from "../loader/Loader";
 import { validateEmailPassword } from "../../utils/validators";
 import { signIn } from "../../firebase/authMethods";
-import { withAuth, authStates } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import en from "../../utils/i18n";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,40 +18,54 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Login = (props) => {
+const Login = () => {
     const classes = useStyles();
+    const { authState } = useAuth();
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const [values, setValues] = useState({ email: "", password: "" });
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setValues({ ...values, [name]: value });
-
         if (error) setError("");
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         const errorMsg = validateEmailPassword(values.email, values.password);
-
         if (errorMsg) {
             setError(errorMsg);
             return;
         }
 
-        signIn(values.email, values.password)
-            .catch((e) => {
-                setError("Nieprawidłowy adres e-mail lub hasło");
-            });
+        setLoading(true);
+        setError("");
+
+        try {
+            await signIn(values.email, values.password);
+        } catch (e) {
+            const errorMessages = {
+                "auth/user-not-found": "Nie znaleziono użytkownika",
+                "auth/wrong-password": "Nieprawidłowe hasło",
+                "auth/invalid-email": "Nieprawidłowy adres e-mail",
+                "auth/invalid-credential": "Nieprawidłowy e-mail lub hasło",
+                "auth/too-many-requests": "Zbyt wiele prób. Spróbuj później",
+                "auth/network-request-failed": "Błąd sieci. Sprawdź połączenie",
+            };
+            setError(errorMessages[e.code] || `Błąd logowania: ${e.message}`);
+        } finally {
+            setLoading(false);
+        }
     };
 
-    if (props.authState === authStates.INITIAL_VALUE) {
+    if (authState === authStates.INITIAL_VALUE) {
         return <Loader />;
     }
 
-    if (props.authState === authStates.LOGGED_IN) {
-        return <Redirect to="/"></Redirect>;
+    if (authState === authStates.LOGGED_IN) {
+        return <Redirect to="/" />;
     }
 
     return (
@@ -62,7 +76,7 @@ const Login = (props) => {
                     <p className="login-subtitle">Witaj ponownie! Zaloguj się do swojego konta</p>
                 </div>
                 <div className="login-card">
-                    <form className={classes.root} noValidate autoComplete="off">
+                    <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <TextField
@@ -74,6 +88,7 @@ const Login = (props) => {
                                     label="Adres e-mail"
                                     variant="outlined"
                                     fullWidth
+                                    disabled={loading}
                                     className="login-input"
                                     InputLabelProps={{
                                         shrink: true,
@@ -90,6 +105,7 @@ const Login = (props) => {
                                     label="Hasło"
                                     variant="outlined"
                                     fullWidth
+                                    disabled={loading}
                                     className="login-input"
                                     InputLabelProps={{
                                         shrink: true,
@@ -105,12 +121,13 @@ const Login = (props) => {
                             )}
                             <Grid item xs={12}>
                                 <Button
-                                    onClick={handleSubmit}
+                                    type="submit"
                                     variant="contained"
                                     fullWidth
+                                    disabled={loading}
                                     className="login-button"
                                 >
-                                    Zaloguj
+                                    {loading ? "Logowanie..." : "Zaloguj"}
                                 </Button>
                             </Grid>
                             <Grid item xs={12}>
@@ -129,4 +146,4 @@ const Login = (props) => {
     );
 };
 
-export default withAuth(Login);
+export default Login;

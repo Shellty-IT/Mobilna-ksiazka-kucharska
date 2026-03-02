@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import "./Seek.css";
@@ -10,11 +10,11 @@ import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
-import { Redirect } from "react-router-dom";
 
-const Seek = (props) => {
+const Seek = () => {
+    const { authState } = useAuth();
     const [state, setState] = useState({
         Jajka: false,
         Ziemniaki: false,
@@ -46,19 +46,18 @@ const Seek = (props) => {
             let result = await getRecipes();
             setRecipes(result);
         }
-
         fetchData();
     }, []);
 
     const handleClick = (e) => {
         e.preventDefault();
-        
+
         const selectedIngredients = Object.entries(state)
             .filter(([_, checked]) => checked)
             .map(([name]) => name);
 
         const helpTab = recipes.filter(recipe => {
-            const matchCount = selectedIngredients.filter(ingredient => 
+            const matchCount = selectedIngredients.filter(ingredient =>
                 recipe.ingredients.includes(ingredient)
             ).length;
             return matchCount >= 2;
@@ -69,7 +68,7 @@ const Seek = (props) => {
         } else {
             setAlert(false);
         }
-        
+
         handleSort(helpTab, selectedIngredients);
     };
 
@@ -79,19 +78,21 @@ const Seek = (props) => {
             const countB = b.ingredients.filter(ing => selectedIngredients.includes(ing)).length;
             return countB - countA;
         });
-        
+
         setRecipesShow(sorted);
     };
+
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
         setAlert(false);
     };
-    if (props.authState === authStates.INITIAL_VALUE) {
+
+    if (authState === authStates.INITIAL_VALUE) {
         return <Loader />;
     }
 
-    if (props.authState === authStates.LOGGED_OUT) {
-        return <Redirect to="/logowanie"></Redirect>;
+    if (authState === authStates.LOGGED_OUT) {
+        return <Redirect to="/logowanie" />;
     }
 
     return (
@@ -429,4 +430,4 @@ const Seek = (props) => {
     );
 };
 
-export default withAuth(Seek);
+export default Seek;

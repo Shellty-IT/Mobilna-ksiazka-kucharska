@@ -11,20 +11,6 @@ const firebaseConfig = {
     appId: "1:379679255811:web:530dc719262d7e7f8d8d36"
 };
 
-console.log("=== Inicjalizuję Firebase ==="); // DODAJ
-
-let app;
-let auth;
-let database;
-
-try {
-    app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    database = getDatabase(app);
-    console.log("=== Firebase zainicjalizowany POMYŚLNIE ==="); // DODAJ
-    console.log("Auth:", auth); // DODAJ
-} catch (error) {
-    console.error("=== BŁĄD INICJALIZACJI FIREBASE ===", error); // DODAJ
-}
-
-export { auth, database };
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const database = getDatabase(app);

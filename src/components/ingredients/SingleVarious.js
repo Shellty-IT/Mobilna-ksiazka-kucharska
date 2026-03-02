@@ -12,7 +12,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import How from "../how/How";
-import { authStates, withAuth } from "../auth";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 
 const useStyles = makeStyles((theme) => ({
@@ -89,8 +89,8 @@ const VariousDetails = ({ item }) => (
     </Container>
 );
 
-const SingleVarious = (props) => {
-    const classes = useStyles();
+const SingleVarious = () => {
+    const { authState } = useAuth();
     const { slug } = useParams();
     const [item, setItem] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -108,15 +108,15 @@ const SingleVarious = (props) => {
         return () => { active = false; };
     }, [slug]);
 
-    if (props.authState === authStates.INITIAL_VALUE || loading) return <Loader />;
+    if (authState === authStates.INITIAL_VALUE || loading) return <Loader />;
     if (!item) return <Container maxWidth="md"><Typography variant="h6">Nie znaleziono</Typography></Container>;
 
     return (
-        <div className="single-page"> 
+        <div className="single-page">
             <How />
-            <VariousDetails item={item} classes={classes} />
+            <VariousDetails item={item} />
         </div>
     );
 };
 
-export default withAuth(SingleVarious);
+export default SingleVarious;
