@@ -7,7 +7,7 @@ Aplikacja jest zbudowana w oparciu o bibliotekę **React** i wykorzystuje **Fire
 ### 1. Frontend (React)
 - **Routing**: Zarządzany przez `react-router-dom` (v5). Definiuje ścieżki dla poszczególnych kategorii produktów (warzywa, kasze, makarony) oraz przepisów.
 - **Komponenty**: Podzielone tematycznie w folderze `src/components/`. Wykorzystują CSS Modules (choć wiele plików jest importowanych globalnie lub per komponent).
-- **Zarządzanie stanem**: Wykorzystuje Context API (`AuthProvider`) do zarządzania stanem autoryzacji użytkownika.
+- **Zarządzanie stanem**: Wykorzystuje Context API (`authProvider`) do zarządzania stanem autoryzacji użytkownika.
 
 ### 2. Backend (Firebase)
 - **Authentication**: Obsługuje rejestrację i logowanie użytkowników.

@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { useAuth, authStates } from "../../provider/AuthProvider";
+import { useAuth, authStates } from "../../provider/authProvider";
 import Loader from "../loader/Loader";
 import "./Intro.css";
 

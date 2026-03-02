@@ -12,7 +12,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import How from "../how/How";
-import { useAuth, authStates } from "../../provider/AuthProvider";
+import { useAuth, authStates } from "../../provider/authProvider";
 import Loader from "../loader/Loader";
 
 const useStyles = makeStyles((theme) => ({

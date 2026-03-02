@@ -8,7 +8,7 @@ import { Card } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem";
-import { useAuth, authStates } from "../../provider/AuthProvider";
+import { useAuth, authStates } from "../../provider/authProvider";
 import Loader from "../loader/Loader";
 
 const Various = () => {
