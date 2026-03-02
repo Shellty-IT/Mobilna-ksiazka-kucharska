@@ -12,12 +12,12 @@ export const authStates = {
 export const useAuth = () => {
     const context = useContext(AuthContext);
     if (!context) {
-        throw new Error("useAuth must be used within authProvider");
+        throw new Error("useAuth must be used within AuthProvider");
     }
     return context;
 };
 
-const authProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [authState, setAuthState] = useState(authStates.INITIAL_VALUE);
 
@@ -44,4 +44,4 @@ const authProvider = ({ children }) => {
     );
 };
 
-export default authProvider;
+export default AuthProvider;

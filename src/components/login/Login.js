@@ -6,7 +6,7 @@ import "./Login.css";
 import Loader from "../loader/Loader";
 import { validateEmailPassword } from "../../utils/validators";
 import { signIn } from "../../firebase/authMethods";
-import { useAuth, authStates } from "../../provider/authProvider";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import en from "../../utils/i18n";
 
 const useStyles = makeStyles((theme) => ({

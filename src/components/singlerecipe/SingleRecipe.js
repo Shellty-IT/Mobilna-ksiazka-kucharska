@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getRecipes } from "../../Api";
 import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
-import { useAuth, authStates } from "../../provider/authProvider";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 import "./SingleRecipe.css";
 

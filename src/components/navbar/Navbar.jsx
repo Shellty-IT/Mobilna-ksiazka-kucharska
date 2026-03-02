@@ -9,7 +9,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
-import { useAuth, authStates } from "../../provider/authProvider";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Menu from "@material-ui/core/Menu";
 import { signOut } from "../../firebase/authMethods";

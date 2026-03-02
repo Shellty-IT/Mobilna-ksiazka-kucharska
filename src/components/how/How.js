@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import "./How.css";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
-import { useAuth, authStates } from "../../provider/authProvider";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 
 const How = () => {

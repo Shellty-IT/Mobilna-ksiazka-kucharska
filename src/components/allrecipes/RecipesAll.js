@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getRecipes } from "../../Api";
-import { useAuth, authStates } from "../../provider/authProvider";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Container from "@material-ui/core/Container";
 import { Card } from "@material-ui/core";
 import List from "@material-ui/core/List";

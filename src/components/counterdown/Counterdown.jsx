@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Countdown from "react-countdown";
 import { Container, Button } from "@material-ui/core";
 import { Card } from "@material-ui/core";
-import { useAuth, authStates } from "../../provider/authProvider";
+import { useAuth, authStates } from "../../provider/AuthProvider";
 import Loader from "../loader/Loader";
 import { Redirect } from "react-router-dom";
 import useSound from "use-sound";
