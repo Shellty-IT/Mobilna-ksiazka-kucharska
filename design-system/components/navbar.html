@@ -1,0 +1,71 @@
+<!-- @dsCard group="Components" name="Navbar" subtitle="Desktop app bar + mobile drawer" -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Navbar</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 32px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #f8fafc;
+  }
+  h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #718096; margin: 8px 0 12px; }
+
+  /* Desktop app bar */
+  .appbar {
+    background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    border-radius: 12px; display: flex; align-items: center;
+    padding: 12px 32px; min-height: 70px; gap: 24px;
+  }
+  .logo { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.5px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); margin-right: 24px; }
+  .links { display: flex; gap: 8px; flex: 1; }
+  .nav-btn { color: #fff; font-size: 15px; font-weight: 600; padding: 10px 20px; border-radius: 10px; cursor: pointer; }
+  .nav-btn:hover { background: rgba(255,255,255,0.15); }
+  .user { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; background: rgba(255,255,255,0.15); font-size: 20px; }
+
+  /* Mobile drawer */
+  .drawer {
+    max-width: 380px; margin-top: 20px;
+    background: linear-gradient(180deg,#667eea 0%,#764ba2 100%);
+    border-radius: 12px; padding: 20px 0; box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  .drawer .close { position: absolute; top: 8px; right: 16px; color: #fff; font-size: 22px; }
+  .drawer .item {
+    color: #fff; font-size: 16px; font-weight: 600; padding: 16px 32px;
+    border-left: 4px solid transparent;
+  }
+  .drawer .item.active { background: rgba(255,255,255,0.15); border-left-color: #fff; padding-left: 40px; }
+</style>
+</head>
+<body>
+  <h2>Desktop — app bar</h2>
+  <div class="appbar">
+    <div class="logo">Książka Kucharska</div>
+    <div class="links">
+      <div class="nav-btn">Wstęp</div>
+      <div class="nav-btn" style="background:rgba(255,255,255,0.15)">Znajdź przepis</div>
+      <div class="nav-btn">Jak ugotować</div>
+      <div class="nav-btn">Wszystkie przepisy</div>
+      <div class="nav-btn">Minutnik</div>
+    </div>
+    <div class="user">&#128100;</div>
+  </div>
+
+  <h2 style="margin-top:28px">Mobile — drawer</h2>
+  <div class="drawer">
+    <div class="close">&#10005;</div>
+    <div class="item">Wstęp</div>
+    <div class="item active">Znajdź przepis</div>
+    <div class="item">Jak ugotować</div>
+    <div class="item">Wszystkie przepisy</div>
+    <div class="item">Minutnik</div>
+    <div class="item">Zaloguj</div>
+    <div class="item">Zarejestruj</div>
+  </div>
+</body>
+</html>

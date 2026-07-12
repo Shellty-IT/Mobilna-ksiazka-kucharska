@@ -1,0 +1,48 @@
+<!-- @dsCard group="Components" name="Intro tips" subtitle="Content card with numbered tip list" -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Intro tips</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 48px 20px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    min-height: 100vh; display: flex; justify-content: center;
+  }
+  .content { max-width: 760px; width: 100%; background: #fff; border-radius: 24px; padding: 60px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+  .header { text-align: center; margin-bottom: 40px; }
+  .title { font-size: 42px; font-weight: 800; background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 24px; line-height: 1.2; letter-spacing: -0.5px; }
+  .divider { width: 80px; height: 4px; background: linear-gradient(90deg,#667eea 0%,#764ba2 100%); margin: 0 auto; border-radius: 2px; }
+  .text { font-size: 18px; line-height: 1.8; color: #4a5568; margin: 0 0 40px; text-align: center; }
+
+  .tips { background: linear-gradient(135deg,#f0f4ff 0%,#e9f0ff 100%); border-radius: 16px; padding: 40px; border: 2px solid #dce7ff; }
+  .tips-title { font-size: 24px; font-weight: 700; color: #2d3748; margin: 0 0 32px; text-align: center; }
+  .list { display: flex; flex-direction: column; gap: 24px; }
+  .item { display: flex; align-items: flex-start; gap: 20px; padding: 24px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(102,126,234,0.1); border: 2px solid transparent; }
+  .item.hover { transform: translateX(8px); box-shadow: 0 8px 24px rgba(102,126,234,0.2); border-color: #667eea; }
+  .n { display: flex; align-items: center; justify-content: center; min-width: 48px; height: 48px; background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); color: #fff; font-size: 24px; font-weight: 700; border-radius: 12px; box-shadow: 0 4px 12px rgba(102,126,234,0.3); }
+  .item p { flex: 1; font-size: 16px; line-height: 1.7; color: #4a5568; margin: 0; padding-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="content">
+    <div class="header">
+      <h1 class="title">Witaj w kuchni</h1>
+      <div class="divider"></div>
+    </div>
+    <p class="text">Twój pomocnik kuchenny — przepisy, czasy gotowania i minutnik w jednym miejscu.</p>
+    <div class="tips">
+      <h2 class="tips-title">Wskazówki</h2>
+      <div class="list">
+        <div class="item hover"><div class="n">1</div><p>Wybierz składniki, które masz pod ręką, aby znaleźć pasujące przepisy.</p></div>
+        <div class="item"><div class="n">2</div><p>Sprawdź optymalny czas gotowania warzyw, kasz i makaronów.</p></div>
+        <div class="item"><div class="n">3</div><p>Ustaw minutnik i gotuj z precyzją co do sekundy.</p></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

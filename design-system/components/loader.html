@@ -1,0 +1,41 @@
+<!-- @dsCard group="Components" name="Loader" subtitle="Concentric spinner overlay" -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Loader</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .container { display: flex; flex-direction: column; align-items: center; gap: 32px; }
+  .spinner { position: relative; width: 80px; height: 80px; }
+  .circle {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 80px; height: 80px; border: 6px solid rgba(255,255,255,0.2);
+    border-top-color: #fff; border-radius: 50%;
+    animation: spin 1.2s cubic-bezier(0.5,0,0.5,1) infinite;
+  }
+  .circle-2 { width: 64px; height: 64px; border-width: 5px; animation-duration: 1s; animation-delay: -0.2s; }
+  .circle-3 { width: 48px; height: 48px; border-width: 4px; animation-duration: 0.8s; animation-delay: -0.4s; }
+  .text { font-size: 20px; font-weight: 700; color: #fff; margin: 0; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); animation: pulse 1.5s ease-in-out infinite; }
+  @keyframes spin { 0% { transform: translate(-50%,-50%) rotate(0); } 100% { transform: translate(-50%,-50%) rotate(360deg); } }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="spinner">
+      <div class="circle"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle circle-3"></div>
+    </div>
+    <p class="text">Ładowanie...</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!-- @dsCard group="Components" name="Timer" subtitle="Minutnik countdown card" -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Timer</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 48px 20px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  }
+  .container { max-width: 600px; width: 100%; }
+  .header { text-align: center; margin-bottom: 40px; }
+  .title { font-size: 42px; font-weight: 800; color: #fff; margin: 0 0 16px; text-shadow: 0 4px 20px rgba(0,0,0,0.2); letter-spacing: -0.5px; }
+  .subtitle { font-size: 18px; color: rgba(255,255,255,0.9); margin: 0; }
+
+  .card { padding: 56px 48px; border-radius: 28px; box-shadow: 0 25px 70px rgba(0,0,0,0.3); background: #fff; }
+  .label { display: block; text-align: center; font-size: 17px; font-weight: 600; color: #2d3748; margin-bottom: 20px; }
+  .input { width: 100%; padding: 20px 24px; font-size: 32px; font-weight: 700; text-align: center; border: 3px solid #667eea; border-radius: 16px; outline: none; background: #fff; color: #667eea; font-variant-numeric: tabular-nums; margin-bottom: 40px; }
+
+  .display { min-height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; background: linear-gradient(135deg,#f0f4ff 0%,#e9f0ff 100%); border-radius: 20px; padding: 32px; border: 2px solid #dce7ff; }
+  .timer { display: flex; align-items: flex-start; justify-content: center; gap: 12px; }
+  .seg-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .seg { font-size: 72px; font-weight: 800; background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; min-width: 100px; text-align: center; font-variant-numeric: tabular-nums; }
+  .seg-lbl { font-size: 14px; font-weight: 600; color: #718096; text-transform: uppercase; letter-spacing: 1px; }
+  .sep { font-size: 72px; font-weight: 800; color: #cbd5e0; padding-top: 8px; }
+
+  .controls { display: flex; gap: 20px; justify-content: center; }
+  .btn { padding: 18px 48px; font-size: 18px; font-weight: 700; border: none; border-radius: 14px; color: #fff; cursor: pointer; flex: 1; max-width: 200px; }
+  .btn-start { background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); box-shadow: 0 6px 20px rgba(102,126,234,0.4); }
+  .btn-stop { background: linear-gradient(135deg,#f56565 0%,#c53030 100%); box-shadow: 0 6px 20px rgba(245,101,101,0.4); }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Minutnik</h1>
+      <p class="subtitle">Ustaw czas i gotuj z precyzją</p>
+    </div>
+    <div class="card">
+      <label class="label">Ustaw czas (minuty)</label>
+      <input class="input" value="10" />
+      <div class="display">
+        <div class="timer">
+          <div class="seg-wrap"><span class="seg">09</span><span class="seg-lbl">Min</span></div>
+          <span class="sep">:</span>
+          <div class="seg-wrap"><span class="seg">45</span><span class="seg-lbl">Sek</span></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn btn-start">Start</button>
+        <button class="btn btn-stop">Stop</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

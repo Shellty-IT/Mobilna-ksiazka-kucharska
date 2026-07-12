@@ -1,0 +1,79 @@
+<!-- @dsCard group="Components" name="Buttons" subtitle="Primary / secondary / danger / nav / link" -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Buttons</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+  }
+  .panel {
+    max-width: 720px; margin: 0 auto; background: #fff; border-radius: 24px;
+    padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  h1 { font-size: 22px; font-weight: 800; margin: 0 0 24px; color: #2d3748; letter-spacing: -0.5px; }
+  h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #718096; margin: 28px 0 12px; }
+  .set { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+
+  .btn {
+    padding: 16px 32px; font-size: 16px; font-weight: 700; border: none; cursor: pointer;
+    border-radius: 12px; text-transform: none; letter-spacing: 0.3px; color: #fff;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  .btn-primary { background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); box-shadow: 0 8px 25px rgba(102,126,234,0.35); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(102,126,234,0.45); }
+  .btn-secondary { background: linear-gradient(135deg,#764ba2 0%,#667eea 100%); box-shadow: 0 8px 25px rgba(118,75,162,0.35); }
+  .btn-start { background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); box-shadow: 0 6px 20px rgba(102,126,234,0.4); }
+  .btn-stop { background: linear-gradient(135deg,#f56565 0%,#c53030 100%); box-shadow: 0 6px 20px rgba(245,101,101,0.4); }
+  .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+  .navbtn {
+    background: #667eea; color: #fff; font-size: 15px; font-weight: 600; text-transform: none;
+    padding: 10px 20px; border-radius: 10px; border: none; letter-spacing: 0.2px; cursor: pointer;
+  }
+  .navbtn.ghost { background: rgba(102,126,234,0.12); color: #667eea; }
+
+  .link {
+    color: #667eea; text-decoration: none; font-weight: 700; font-size: 15px;
+    padding: 8px 16px; border-radius: 8px;
+  }
+  .link:hover { background: rgba(102,126,234,0.08); color: #764ba2; }
+</style>
+</head>
+<body>
+  <div class="panel">
+    <h1>Buttons</h1>
+
+    <h2>Primary actions</h2>
+    <div class="set">
+      <button class="btn btn-primary">Zaloguj</button>
+      <button class="btn btn-secondary">Wszystkie przepisy</button>
+      <button class="btn btn-primary" disabled>Logowanie…</button>
+    </div>
+
+    <h2>Timer controls</h2>
+    <div class="set">
+      <button class="btn btn-start">Start</button>
+      <button class="btn btn-stop">Stop</button>
+    </div>
+
+    <h2>Nav buttons</h2>
+    <div class="set">
+      <button class="navbtn">Wstęp</button>
+      <button class="navbtn">Znajdź przepis</button>
+      <button class="navbtn ghost">Minutnik</button>
+    </div>
+
+    <h2>Text link</h2>
+    <div class="set">
+      <a class="link" href="#">Zarejestruj się</a>
+    </div>
+  </div>
+</body>
+</html>

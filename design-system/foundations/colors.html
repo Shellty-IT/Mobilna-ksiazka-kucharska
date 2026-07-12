@@ -1,0 +1,72 @@
+<!-- @dsCard group="Foundations" name="Colors" subtitle="Brand gradient, palette, semantic tones" -->
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Colors</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 32px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #2d3748;
+    background: #f8fafc;
+  }
+  h1 { font-size: 24px; font-weight: 800; margin: 0 0 4px; letter-spacing: -0.5px; }
+  .sub { color: #64748b; font-size: 14px; margin: 0 0 28px; }
+  h2 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #718096; margin: 28px 0 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .swatch { border-radius: 14px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); background: #fff; }
+  .chip { height: 76px; }
+  .meta { padding: 10px 12px; }
+  .name { font-size: 13px; font-weight: 700; }
+  .hex { font-size: 12px; color: #64748b; font-variant-numeric: tabular-nums; }
+  .wide { grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+  <h1>Colors</h1>
+  <p class="sub">Purple-indigo brand system used across every screen.</p>
+
+  <h2>Brand</h2>
+  <div class="grid">
+    <div class="swatch wide">
+      <div class="chip" style="height:96px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)"></div>
+      <div class="meta"><div class="name">Brand gradient</div><div class="hex">135deg · #667eea → #764ba2</div></div>
+    </div>
+    <div class="swatch"><div class="chip" style="background:#667eea"></div><div class="meta"><div class="name">Indigo</div><div class="hex">#667eea</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#764ba2"></div><div class="meta"><div class="name">Purple</div><div class="hex">#764ba2</div></div></div>
+  </div>
+
+  <h2>Semantic — danger</h2>
+  <div class="grid">
+    <div class="swatch wide">
+      <div class="chip" style="background:linear-gradient(135deg,#f56565 0%,#c53030 100%)"></div>
+      <div class="meta"><div class="name">Danger gradient</div><div class="hex">#f56565 → #c53030</div></div>
+    </div>
+    <div class="swatch"><div class="chip" style="background:#ef4444"></div><div class="meta"><div class="name">Error</div><div class="hex">#ef4444</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#dc2626"></div><div class="meta"><div class="name">Error dark</div><div class="hex">#dc2626</div></div></div>
+  </div>
+
+  <h2>Text</h2>
+  <div class="grid">
+    <div class="swatch"><div class="chip" style="background:#1e293b"></div><div class="meta"><div class="name">Ink</div><div class="hex">#1e293b</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#2d3748"></div><div class="meta"><div class="name">Heading</div><div class="hex">#2d3748</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#4a5568"></div><div class="meta"><div class="name">Body</div><div class="hex">#4a5568</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#64748b"></div><div class="meta"><div class="name">Muted</div><div class="hex">#64748b</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#a0aec0"></div><div class="meta"><div class="name">Muted soft</div><div class="hex">#a0aec0</div></div></div>
+  </div>
+
+  <h2>Surfaces &amp; borders</h2>
+  <div class="grid">
+    <div class="swatch"><div class="chip" style="background:#ffffff;border-bottom:1px solid #eee"></div><div class="meta"><div class="name">Surface</div><div class="hex">#ffffff</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#f8fafc"></div><div class="meta"><div class="name">Surface 1</div><div class="hex">#f8fafc</div></div></div>
+    <div class="swatch"><div class="chip" style="background:linear-gradient(135deg,#f0f4ff,#e9f0ff)"></div><div class="meta"><div class="name">Info tint</div><div class="hex">#f0f4ff → #e9f0ff</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#e2e8f0"></div><div class="meta"><div class="name">Border</div><div class="hex">#e2e8f0</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#cbd5e0"></div><div class="meta"><div class="name">Border strong</div><div class="hex">#cbd5e0</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#dce7ff"></div><div class="meta"><div class="name">Tint border</div><div class="hex">#dce7ff</div></div></div>
+  </div>
+</body>
+</html>
