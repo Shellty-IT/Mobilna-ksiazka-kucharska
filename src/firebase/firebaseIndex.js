@@ -3,12 +3,13 @@ import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBtwnJGffDi1J-YBrPWlU0aMjknVQpIVuc",
-    authDomain: "pomocnik-cc6da.firebaseapp.com",
-    projectId: "pomocnik-cc6da",
-    storageBucket: "pomocnik-cc6da.appspot.com",
-    messagingSenderId: "379679255811",
-    appId: "1:379679255811:web:530dc719262d7e7f8d8d36"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

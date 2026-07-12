@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import { createContext, createElement, useContext, useEffect, useMemo, useState } from "react";
 import { attachAuthListener } from "../firebase/authMethods";
 
 const AuthContext = createContext();
@@ -17,7 +17,7 @@ export const useAuth = () => {
     return context;
 };
 
-const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [authState, setAuthState] = useState(authStates.INITIAL_VALUE);
 
@@ -32,16 +32,9 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, []);
 
-    const value = {
-        user,
-        authState,
-    };
+    const value = useMemo(() => ({ user, authState }), [user, authState]);
 
-    return (
-        <AuthContext.Provider value={value}>
-            {children}
-        </AuthContext.Provider>
-    );
+    return createElement(AuthContext.Provider, { value }, children);
 };
 
 export default AuthProvider;
