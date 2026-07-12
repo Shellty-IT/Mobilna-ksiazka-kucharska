@@ -36,7 +36,7 @@ h1,h2,h3 { text-wrap:balance; }
 .hero-orb { position:absolute; border-radius:50%; background:#f7d7bd; opacity:.9; }
 .orb-one { width:280px; height:280px; top:-65px; right:-28px; }.orb-two { width:180px; height:180px; bottom:-50px; left:-45px; background:#f2e7a7; }
 .hero-plate { position:absolute; inset:50% auto auto 50%; display:grid; width:220px; height:220px; place-items:center; border:14px solid #fffaf5; border-radius:50%; background:#fbf0e5; box-shadow:0 25px 45px rgb(53 68 39 / 17%); font-size:92px; transform:translate(-50%,-50%) rotate(-8deg); }
-.hero-note { position:absolute; padding:9px 13px; border:1px solid rgb(255 255 255 / 70%); border-radius:999px; background:rgb(255 255 255 / 60%); color:#4b5742; font-family:"DM Mono",monospace; font-size:.7rem; backdrop-filter:blur(8px); }.note-one { left:20px; top:25%; }.note-two { right:14px; bottom:20%; }
+.hero-note { position:absolute; padding:9px 13px; border:1px solid rgb(255 255 255 / 70%); border-radius:999px; background:rgb(255 255 255 / 60%); color:#4b5742; font-family:"DM Mono",monospace; font-size:.7rem; backdrop-filter:blur(8px); }.note-one { left:20px; top:25%; }.note-two { bottom:17%; left:52%; max-width:135px; text-align:center; }
 .highlights { display:grid; grid-template-columns:repeat(3,1fr); margin-bottom:86px; border-top:1px solid var(--line); }
 .highlight { min-height:210px; padding:27px 28px 20px 0; border-right:1px solid var(--line); }.highlight + .highlight { padding-left:28px; }.highlight:last-child { border-right:0; }
 .highlight span { color:var(--accent); font-family:"DM Mono",monospace; font-size:.75rem; }.highlight h2 { margin:47px 0 8px; font-size:1.02rem; }.highlight p { max-width:230px; color:var(--muted); font-size:.92rem; line-height:1.5; }

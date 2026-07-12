@@ -22,6 +22,16 @@ export const ingredientCatalog = [
 ].map(([id, label, category]) => ({ id, label, category, normalized: normalizeText(id) }));
 
 const ingredientLabels = new Map(ingredientCatalog.map((ingredient) => [ingredient.id, ingredient.label]));
+const ingredientAliases = new Map([
+  ["SosSerowy", "Sos serowy"],
+  ["Smietanka", "Śmietanka"],
+]);
+
+function formatIngredient(ingredient) {
+  return ingredientLabels.get(ingredient)
+    || ingredientAliases.get(ingredient)
+    || String(ingredient).replace(/([a-ząćęłńóśźż])([A-Z])/g, "$1 $2");
+}
 
 function scoreRecipe(recipe, selected) {
   const recipeIngredients = new Set((recipe.ingredients || []).map(normalizeText));
@@ -34,8 +44,8 @@ function scoreRecipe(recipe, selected) {
   return {
     recipe,
     score,
-    matchedIngredients: matched.map((ingredient) => ingredientLabels.get(ingredient) || ingredient),
-    missingIngredients: missing.map((ingredient) => ingredientLabels.get(ingredient) || ingredient),
+    matchedIngredients: matched.map(formatIngredient),
+    missingIngredients: missing.map(formatIngredient),
   };
 }
 

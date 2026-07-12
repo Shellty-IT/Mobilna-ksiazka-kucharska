@@ -23,6 +23,14 @@ describe("ingredient search", () => {
     expect(findRecipesByIngredients(recipes, ["Brokul"], { maxMissing: 1 })).toHaveLength(0);
   });
 
+  it("formats compact ingredient identifiers for display", () => {
+    const [{ missingIngredients }] = findRecipesByIngredients(
+      [{ id: "3", name: "Makaron", ingredients: ["Brokul", "SosSerowy"] }],
+      ["Brokul"],
+    );
+    expect(missingIngredients).toContain("Sos serowy");
+  });
+
   it("filters recipes by normalized name", () => {
     expect(filterRecipesByName(recipes, "BROKUL")).toHaveLength(1);
   });
