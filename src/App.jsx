@@ -1,23 +1,25 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-
-const Placeholder = ({ title }) => (
-  <main className="app-shell">
-    <section className="status-card">
-      <p className="eyebrow">Mobilna Książka Kucharska</p>
-      <h1>{title}</h1>
-      <p>Trwa przygotowywanie nowej wersji tego widoku.</p>
-    </section>
-  </main>
-);
+import { Layout } from "./components/Layout";
+import { HomePage } from "./pages/HomePage";
+import { ProductPage } from "./pages/ProductPage";
+import { ProductsPage } from "./pages/ProductsPage";
+import { RecipePage } from "./pages/RecipePage";
+import { SearchPage } from "./pages/SearchPage";
+import { TimerPage } from "./pages/TimerPage";
 
 export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Placeholder title="Gotuj prościej" />} />
-      <Route path="/szukaj" element={<Placeholder title="Znajdź przepis" />} />
-      <Route path="/produkty" element={<Placeholder title="Jak przygotować" />} />
-      <Route path="/minutnik" element={<Placeholder title="Minutnik" />} />
+  return <Routes>
+    <Route element={<Layout />}>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/szukaj" element={<SearchPage />} />
+      <Route path="/przepisy/:recipeId" element={<RecipePage />} />
+      <Route path="/produkty" element={<ProductsPage />} />
+      <Route path="/produkty/:category/:productId" element={<ProductPage />} />
+      <Route path="/minutnik" element={<TimerPage />} />
+      <Route path="/funkcje/znajdz" element={<Navigate to="/szukaj" replace />} />
+      <Route path="/funkcje/znajdz/przepisy/:recipeId" element={<Navigate to="/przepisy/:recipeId" replace />} />
+      <Route path="/funkcje/jak" element={<Navigate to="/produkty" replace />} />
       <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  );
+    </Route>
+  </Routes>;
 }
