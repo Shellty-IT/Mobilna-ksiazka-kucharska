@@ -1,25 +1,20 @@
 {
-  "short_name": "Mobilna książka kucharska",
-  "name": "Mobilna książka kucharska",
+  "short_name": "Książka Kucharska",
+  "name": "Mobilna Książka Kucharska",
   "icons": [
     {
-      "src": "recipe-book.svg",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
-      "src": "recipe-book.svg",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "recipe-book.svg",
+      "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#dc5735",
+  "background_color": "#fffaf5"
 }

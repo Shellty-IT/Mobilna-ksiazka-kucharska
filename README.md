@@ -1,70 +1,62 @@
 # Mobilna Książka Kucharska
 
-Aplikacja mobilna (PWA) będąca pomocnikiem kuchennym, ułatwiająca gotowanie poprzez dostarczanie przepisów, instrukcji przygotowania składników oraz wbudowany minutnik.
+[English version](README.en.md)
 
-## Spis treści
-- [Opis aplikacji](#opis-aplikacji)
-- [Wymagania systemowe](#wymagania-systemowe)
-- [Instrukcja instalacji i uruchomienia](#instrukcja-instalacji-i-uruchomienia)
-- [Struktura projektu](#struktura-projektu)
-- [Dokumentacja dodatkowa](#dokumentacja-dodatkowa)
+Nowoczesna aplikacja PWA pomagająca znaleźć przepis na podstawie dostępnych składników, sprawdzić sposób przygotowania produktów i użyć kuchennego minutnika.
 
-## Opis aplikacji
-Mobilna Książka Kucharska to narzędzie stworzone z myślą o użytkownikach szukających szybkich informacji o czasie gotowania warzyw, kasz, makaronów oraz dostępu do bazy przepisów. Aplikacja oferuje:
-- Przeglądanie instrukcji gotowania konkretnych produktów.
-- Bazę przepisów kulinarnych.
-- Interaktywny minutnik kuchenny.
-- System autoryzacji użytkowników (Firebase).
+## Funkcje
 
-Umożliwia również działanie w trybie offline dzięki technologii PWA.
+- wyszukiwanie przepisów według składników z rankingiem dopasowania;
+- informacja o pasujących i brakujących składnikach;
+- katalog produktów z instrukcjami przygotowania;
+- minutnik kuchenny;
+- responsywny interfejs dla telefonów, tabletów i desktopów;
+- instalacja jako PWA oraz cache aplikacji i danych przepisów.
 
-## Wymagania systemowe
-- **Node.js**: wersja 12.x lub nowsza (zalecana 14.x+)
-- **NPM**: wersja 6.x lub nowsza
-- Przeglądarka internetowa z obsługą nowoczesnych standardów (Chrome, Firefox, Safari)
+## Wymagania
 
-## Instrukcja instalacji i uruchomienia
+- Node.js 20.19 lub nowszy;
+- npm 10 lub nowszy;
+- projekt Firebase z Authentication oraz Realtime Database.
 
-### Klonowanie repozytorium
-```bash
-git clone <url-repozytorium>
-cd Mobilna-ksiazka-kucharska
-```
+## Uruchomienie
 
-### Instalacja zależności
 ```bash
 npm install
+npm run dev
 ```
 
-### Uruchomienie aplikacji w trybie deweloperskim
+Aplikacja domyślnie działa pod adresem `http://localhost:3010`.
+
+## Konfiguracja Firebase
+
+Skopiuj `.env.example` do `.env` i uzupełnij wartości `VITE_FIREBASE_*`. Konfiguracja publicznego projektu jest dostępna jako wartość domyślna, natomiast zmienne środowiskowe pozwalają użyć własnego projektu Firebase.
+
+## Polecenia
+
 ```bash
-npm start
-```
-Aplikacja będzie dostępna pod adresem [http://localhost:3000](http://localhost:3000).
-
-### Budowa wersji produkcyjnej
-```bash
-npm run build
+npm run dev      # serwer deweloperski
+npm run build    # build produkcyjny
+npm run preview  # lokalny podgląd builda
+npm test         # testy algorytmu wyszukiwania
 ```
 
-## Podstawowe informacje o strukturze projektu
-- `src/components/` - komponenty interfejsu użytkownika podzielone na moduły.
-- `src/firebase/` - konfiguracja i metody integracji z Firebase.
-- `src/provider/` - dostawcy kontekstu (np. autoryzacja).
-- `src/utils/` - funkcje pomocnicze i konfiguracje.
-- `src/Api.js` - funkcje pobierające dane z bazy Firebase Realtime Database.
+## Struktura
 
-## Dokumentacja dodatkowa
-Więcej szczegółów znajdziesz w folderze `docs/`:
-- [Architektura](docs/architecture.md)
-- [API i dane](docs/api.md)
-- [Komponenty](docs/components.md)
-- [Konfiguracja](docs/setup.md)
-- [Przewodnik dewelopera](docs/development.md)
+```text
+src/
+├── components/  # układ i stany interfejsu
+├── hooks/       # hooki danych
+├── lib/         # wyszukiwanie i normalizacja
+├── pages/       # widoki aplikacji
+├── services/    # dostęp do Firebase i cache
+└── firebase/    # inicjalizacja usług Firebase
+```
 
-## Oryginalne funkcje PWA
-1. **Instalacja**
-   - **Desktop**: Otwórz [https://simple-react-pwa.web.app](https://simple-react-pwa.web.app), kliknij 3 kropki i wybierz "Zainstaluj simple-react-app".
-   - **Mobile**: Otwórz adres w Chrome, kliknij 3 kropki i wybierz "Dodaj do ekranu głównego".
-2. **Działanie offline**
-   - Aplikacja cache'uje zasoby statyczne, umożliwiając dostęp do interfejsu bez połączenia z internetem.
+## PWA
+
+Manifest oraz service worker są generowane podczas `npm run build`. Po wdrożeniu aplikacja może zostać zainstalowana z poziomu przeglądarki. Shell aplikacji jest cache’owany, a dane receptur mają strategię `NetworkFirst` z fallbackiem cache.
+
+## Wdrożenie
+
+Konfiguracja Netlify znajduje się w `netlify.toml`. Build produkcyjny jest publikowany z katalogu `dist`.
