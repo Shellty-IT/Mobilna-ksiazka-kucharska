@@ -4,6 +4,7 @@ import { extraRecipes } from "../data/recipeExtensions";
 import { database } from "../firebase/firebaseIndex";
 
 const cache = new Map();
+const remoteTimeout = 4500;
 
 function toList(value) {
   if (Array.isArray(value)) return value.filter(Boolean);
@@ -23,9 +24,21 @@ function includeExtensions(path, items) {
 async function readCollection(path) {
   if (cache.has(path)) return cache.get(path);
 
-  const request = get(ref(database, path))
-    .then((snapshot) => includeExtensions(path, snapshot.exists() ? toList(snapshot.val()).map(withId) : []))
-    .catch(() => includeExtensions(path, toList(sampleData[path]).map(withId)));
+  const fallback = () => includeExtensions(path, toList(sampleData[path]).map(withId));
+  const readRemote = () => new Promise((resolve, reject) => {
+    const timeout = window.setTimeout(() => reject(new Error("Przekroczono czas pobierania danych.")), remoteTimeout);
+    get(ref(database, path)).then(
+      (snapshot) => {
+        window.clearTimeout(timeout);
+        resolve(snapshot.exists() ? includeExtensions(path, toList(snapshot.val()).map(withId)) : fallback());
+      },
+      (error) => {
+        window.clearTimeout(timeout);
+        reject(error);
+      },
+    );
+  });
+  const request = (navigator.onLine ? readRemote() : Promise.reject(new Error("Brak połączenia."))).catch(fallback);
 
   cache.set(path, request);
   return request;

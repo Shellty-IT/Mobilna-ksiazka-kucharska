@@ -1,36 +1,38 @@
 # Architektura aplikacji
 
-Aplikacja jest zbudowana w oparciu o bibliotekę **React** i wykorzystuje **Firebase** jako backend (Realtime Database oraz Authentication).
+## Stos
 
-## Główne komponenty architektury
+- React 19 i React Router 7 — interfejs i routing;
+- Vite 8 — środowisko deweloperskie i build;
+- Firebase Realtime Database — zdalny katalog;
+- Vitest — testy jednostkowe;
+- `vite-plugin-pwa` i Workbox — manifest, service worker oraz cache offline.
 
-### 1. Frontend (React)
-- **Routing**: Zarządzany przez `react-router-dom` (v5). Definiuje ścieżki dla poszczególnych kategorii produktów (warzywa, kasze, makarony) oraz przepisów.
-- **Komponenty**: Podzielone tematycznie w folderze `src/components/`. Wykorzystują CSS Modules (choć wiele plików jest importowanych globalnie lub per komponent).
-- **Zarządzanie stanem**: Wykorzystuje Context API (`authProvider`) do zarządzania stanem autoryzacji użytkownika.
+## Warstwy
 
-### 2. Backend (Firebase)
-- **Authentication**: Obsługuje rejestrację i logowanie użytkowników.
-- **Realtime Database**: Przechowuje dane o produktach (warzywa, kasze, makarony, inne) oraz przepisy kulinarne.
-
-### 3. Komunikacja z danymi
-- Wszystkie zapytania do bazy danych znajdują się w pliku `src/Api.js`.
-- Wykorzystywany jest oficjalny SDK Firebase.
-
-## Przepływ danych
-1. Użytkownik wchodzi na stronę kategorii (np. `/funkcje/jak/warzywa`).
-2. Komponent (np. `Vegetables`) wywołuje funkcję z `Api.js` (np. `getVegetables`).
-3. Dane są pobierane z Firebase Realtime Database.
-4. Dane są renderowane w formie listy.
-5. Po kliknięciu w element, użytkownik jest przenoszony do szczegółów (np. `SingleVege`), gdzie dane są przekazywane przez routing lub pobierane ponownie.
-
-## Schemat struktury
+```text
+pages / components → hooks → services → Firebase
+                          ↘ local JSON fallback
+pages → lib/search → indeks i ranking w pamięci
 ```
-src/
-├── Api.js (Warstwa danych)
-├── App.js (Główny router)
-├── components/ (Warstwa prezentacji)
-├── firebase/ (Konfiguracja Firebase)
-├── provider/ (Context Providers)
-└── utils/ (Narzędzia pomocnicze)
-```
+
+- `src/pages/` zawiera ekrany tras ładowane leniwie.
+- `src/components/` zawiera wspólny layout, stany i kontrolki PWA.
+- `src/hooks/useCatalog.js` zarządza stanem asynchronicznego pobierania.
+- `src/services/catalog.js` normalizuje kolekcje, scala rozszerzenia i cache’uje żądania.
+- `src/lib/search.js` odpowiada za normalizację, katalog filtrów, indeks i ranking.
+- `src/example.json` jest lokalnym fallbackiem, a `src/data/recipeExtensions.js` rozszerza katalog niezależnie od źródła.
+
+## Przepływ wyszukiwania
+
+1. `getRecipes()` pobiera Firebase lub lokalny fallback i dodaje rozszerzenia.
+2. `buildIngredientCatalog()` tworzy unikalne filtry ze wszystkich receptur.
+3. `createRecipeSearchIndex()` kanonizuje składniki i zapisuje je w zbiorach.
+4. Wybrane identyfikatory są kanonizowane, oceniane i filtrowane według liczby braków.
+5. Wyniki są sortowane po wyniku, brakach, liczbie trafień i nazwie.
+
+Pełna receptura otrzymuje 100%. Dla niepełnych wynik składa się w 72% z pokrycia receptury, w 20% z liczby różnych trafień (do trzech) i w 8% z pokrycia wyboru użytkownika.
+
+## Offline
+
+Shell aplikacji jest precache’owany. Dane Firebase używają `NetworkFirst` z limitem czasu i tygodniowym cache’em. Przy błędzie pobierania warstwa usług korzysta z danych lokalnych. Minutnik zapisuje czas końca w `localStorage`.

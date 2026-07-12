@@ -1,45 +1,25 @@
-# Dokumentacja API (Firebase Realtime Database)
+# Dane i Firebase
 
-Aplikacja nie posiada tradycyjnego REST API. Komunikacja odbywa się bezpośrednio z Firebase Realtime Database za pomocą funkcji zdefiniowanych w `src/Api.js`.
+Aplikacja nie udostępnia REST API. Odczytuje kolekcje bezpośrednio z Firebase Realtime Database przez moduł `src/services/catalog.js`.
 
-## Struktura danych w Firebase
+## Kolekcje
 
-### `/vegetables`
-Zbiór obiektów opisujących warzywa.
-- `name` (string): Nazwa warzywa.
-- `slug` (string): Unikalny identyfikator URL.
-- `time` (string/number): Czas gotowania.
-- `description` (string): Instrukcja przygotowania.
-- `image` (string): URL do zdjęcia.
+| Ścieżka | Zawartość |
+| --- | --- |
+| `/recipes` | `name`, `number`, `ingredients[]`, `composition[]`, `description`, opcjonalnie `prepTime` |
+| `/vegetables` | instrukcje przygotowania warzyw |
+| `/pasta` | instrukcje przygotowania makaronów |
+| `/groats` | instrukcje przygotowania kasz |
+| `/other` | instrukcje pozostałych produktów |
 
-### `/pasta`
-Zbiór obiektów opisujących makarony.
-- Atrybuty analogiczne do `/vegetables`.
+Każdy rekord jest normalizowany do postaci z tekstowym `id`. Kolekcja może być tablicą albo obiektem Firebase.
 
-### `/groats`
-Zbiór obiektów opisujących kasze.
-- Atrybuty analogiczne do `/vegetables`.
+## Publiczne funkcje warstwy danych
 
-### `/other`
-Zbiór obiektów opisujących inne produkty (jajka, itp.).
-- Atrybuty analogiczne do `/vegetables`.
+- `getRecipes()` — wszystkie przepisy z rozszerzeniami;
+- `getRecipe(id)` — pojedynczy przepis;
+- `getProducts(category)` — jedna kategoria produktów;
+- `getAllProducts()` — wszystkie kategorie produktów;
+- `getProduct(category, id)` — pojedyncza instrukcja produktu.
 
-### `/recipes`
-Baza przepisów kulinarnych.
-- `title` (string): Tytuł przepisu.
-- `slug` (string): Unikalny identyfikator URL.
-- `ingredients` (array): Lista składników.
-- `steps` (array): Kroki przygotowania.
-- `image` (string): URL do zdjęcia.
-
-## Funkcje w `src/Api.js`
-
-| Funkcja | Opis | Ścieżka Firebase |
-|---------|------|------------------|
-| `getVegetables()` | Pobiera listę warzyw | `vegetables` |
-| `getPasta()` | Pobiera listę makaronów | `pasta` |
-| `getVarious()` | Pobiera inne produkty | `other` |
-| `getGroats()` | Pobiera listę kasz | `groats` |
-| `getRecipes()` | Pobiera listę przepisów | `recipes` |
-
-Wszystkie funkcje są asynchroniczne i zwracają tablicę obiektów.
+Pierwsze żądanie danej kolekcji jest cache’owane w pamięci. Błąd sieci powoduje odczyt odpowiedniej kolekcji z `src/example.json`.

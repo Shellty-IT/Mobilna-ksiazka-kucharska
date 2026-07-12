@@ -1,40 +1,14 @@
-# Instalacja i Konfiguracja
+# Instalacja i konfiguracja
 
-## Wymagania wstępne
-- Node.js (v14+)
-- Konto na platformie Firebase
+1. Zainstaluj Node.js 20.19+ i uruchom `npm install`.
+2. Opcjonalnie skopiuj `.env.example` do `.env` i wpisz konfigurację Firebase.
+3. Uruchom `npm run dev`; lokalny adres to `http://localhost:3010`.
+4. Przed wdrożeniem uruchom `npm test` oraz `npm run build`.
 
-## Instalacja lokalna
+## Firebase
 
-1. Sklonuj repozytorium:
-```bash
-git clone <url-repozytorium>
-cd Mobilna-ksiazka-kucharska
-```
+Realtime Database powinna udostępniać kolekcje `recipes`, `vegetables`, `pasta`, `groats` oraz `other` zgodnie z `docs/api.md`. `src/example.json` można zaimportować jako dane startowe i jest używany automatycznie jako fallback.
 
-2. Zainstaluj zależności:
-```bash
-npm install
-```
+## Netlify
 
-3. Skonfiguruj Firebase:
-   - Stwórz nowy projekt w konsoli Firebase.
-   - Włącz **Authentication** (metoda Email/Password).
-   - Stwórz **Realtime Database**.
-   - Skopiuj dane konfiguracyjne do pliku `src/firebase/firebaseIndex.js` oraz `src/utils/firebase.js`.
-
-4. Zaimportuj przykładowe dane:
-   - Możesz wykorzystać plik `src/example.json` do zaimportowania wstępnej struktury bazy danych w konsoli Firebase (Realtime Database -> Import JSON).
-
-5. Uruchom aplikację:
-```bash
-npm start
-```
-
-## Konfiguracja PWA
-Aplikacja jest skonfigurowana jako Progressive Web App przy użyciu `workbox-webpack-plugin`. Główne ustawienia znajdują się w `src/serviceWorker.js` oraz w pliku `public/manifest.json`.
-
-## Deployment (Netlify)
-Projekt zawiera plik `netlify.toml`, który ułatwia wdrażanie na platformie Netlify.
-- Build command: `npm run build`
-- Publish directory: `dist`
+`netlify.toml` ustawia polecenie budowania i katalog publikacji. Plik `public/_redirects` zapewnia obsługę bezpośrednich wejść na trasy SPA.
