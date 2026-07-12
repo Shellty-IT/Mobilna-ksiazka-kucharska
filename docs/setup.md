@@ -37,4 +37,4 @@ Aplikacja jest skonfigurowana jako Progressive Web App przy użyciu `workbox-web
 ## Deployment (Netlify)
 Projekt zawiera plik `netlify.toml`, który ułatwia wdrażanie na platformie Netlify.
 - Build command: `npm run build`
-- Publish directory: `build`
+- Publish directory: `dist`
