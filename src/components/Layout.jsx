@@ -16,7 +16,7 @@ export function Layout() {
     <div className="site-frame">
       <header className="site-header">
         <NavLink className="brand" to="/" onClick={close} aria-label="Mobilna Książka Kucharska, strona główna">
-          <span className="brand-mark" aria-hidden="true">✦</span>
+          <img className="brand-mark" src="/cookbook-mobile.svg" alt="" aria-hidden="true" />
           <span>Książka<br /><em>Kucharska</em></span>
         </NavLink>
         <button className="menu-toggle" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="main-navigation">
