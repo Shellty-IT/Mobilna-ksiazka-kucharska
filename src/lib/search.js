@@ -19,6 +19,12 @@ export const ingredientCatalog = [
   ["Jajka", "Jajka", "nabiał i dodatki"], ["SerZolty", "Ser żółty", "nabiał i dodatki"],
   ["MakaPszenna", "Mąka pszenna", "nabiał i dodatki"], ["MakaZiemniaczana", "Mąka ziemniaczana", "nabiał i dodatki"],
   ["Twarog", "Twaróg", "nabiał i dodatki"], ["SerFeta", "Ser feta", "nabiał i dodatki"],
+  ["Smietanka", "Śmietanka", "nabiał i dodatki"], ["SosSerowy", "Sos serowy", "nabiał i dodatki"],
+  ["Mozzarella", "Mozzarella", "nabiał i dodatki"], ["SerParmezan", "Parmezan", "nabiał i dodatki"],
+  ["Makaron", "Makaron", "spiżarnia"], ["Ryż", "Ryż", "spiżarnia"], ["Ciecierzyca", "Ciecierzyca", "spiżarnia"],
+  ["Soczewica", "Soczewica", "spiżarnia"], ["Pieczarki", "Pieczarki", "warzywa"], ["Szpinak", "Szpinak", "warzywa"],
+  ["Pomidorki", "Pomidorki", "warzywa"], ["Ogorek", "Ogórek", "warzywa"], ["Rukola", "Rukola", "warzywa"],
+  ["Bazylia", "Bazylia", "warzywa"], ["Oliwa", "Oliwa", "spiżarnia"], ["Tofu", "Tofu", "roślinne"],
 ].map(([id, label, category]) => ({ id, label, category, normalized: normalizeText(id) }));
 
 const ingredientLabels = new Map(ingredientCatalog.map((ingredient) => [ingredient.id, ingredient.label]));
