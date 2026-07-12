@@ -27,7 +27,7 @@ export function Layout() {
         </nav>
       </header>
       <Outlet />
-      <footer className="site-footer"><span>Mobilna Książka Kucharska</span><span>Gotuj z tym, co masz pod ręką.</span></footer>
+      <footer className="site-footer"><span>Mobilna Książka Kucharska by <a href="https://shellty.pl" target="_blank" rel="noreferrer">Shellty</a></span><span>Gotuj z tym, co masz pod ręką.</span></footer>
     </div>
   );
 }
