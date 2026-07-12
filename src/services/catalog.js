@@ -5,6 +5,7 @@ import { database } from "../firebase/firebaseIndex";
 
 const cache = new Map();
 const remoteTimeout = 4500;
+const productCollections = new Set(["vegetables", "pasta", "groats", "other"]);
 
 function toList(value) {
   if (Array.isArray(value)) return value.filter(Boolean);
@@ -13,6 +14,14 @@ function toList(value) {
 
 function withId(item) {
   return { ...item, id: String(item.id ?? item.number ?? item.name) };
+}
+
+function normalizeCollection(path, value) {
+  return toList(value).map(withId).map((item) => (
+    productCollections.has(path)
+      ? { ...item, image: `/images/products/${path}/${item.id}.webp` }
+      : item
+  ));
 }
 
 function includeExtensions(path, items) {
@@ -24,13 +33,13 @@ function includeExtensions(path, items) {
 async function readCollection(path) {
   if (cache.has(path)) return cache.get(path);
 
-  const fallback = () => includeExtensions(path, toList(sampleData[path]).map(withId));
+  const fallback = () => includeExtensions(path, normalizeCollection(path, sampleData[path]));
   const readRemote = () => new Promise((resolve, reject) => {
     const timeout = window.setTimeout(() => reject(new Error("Przekroczono czas pobierania danych.")), remoteTimeout);
     get(ref(database, path)).then(
       (snapshot) => {
         window.clearTimeout(timeout);
-        resolve(snapshot.exists() ? includeExtensions(path, toList(snapshot.val()).map(withId)) : fallback());
+        resolve(snapshot.exists() ? includeExtensions(path, normalizeCollection(path, snapshot.val())) : fallback());
       },
       (error) => {
         window.clearTimeout(timeout);
@@ -45,6 +54,7 @@ async function readCollection(path) {
 }
 
 export const getRecipes = () => readCollection("recipes");
+export const getIngredientCategories = () => readCollection("ingredientCategories");
 export const getProducts = (category) => readCollection(category);
 export const getAllProducts = async () => {
   const categories = ["vegetables", "pasta", "groats", "other"];

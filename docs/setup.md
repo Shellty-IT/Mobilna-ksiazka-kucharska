@@ -7,7 +7,16 @@
 
 ## Firebase
 
-Realtime Database powinna udostępniać kolekcje `recipes`, `vegetables`, `pasta`, `groats` oraz `other` zgodnie z `docs/api.md`. `src/example.json` można zaimportować jako dane startowe i jest używany automatycznie jako fallback.
+Realtime Database powinna udostępniać kolekcje `recipes`, `ingredientCategories`, `vegetables`, `pasta`, `groats` oraz `other` zgodnie z `docs/api.md`. `src/example.json` można zaimportować jako dane startowe i jest używany automatycznie jako fallback.
+
+Zdjęcia kategorii i produktów można bezpiecznie sprawdzić oraz wyseedować poleceniami:
+
+```bash
+npm run seed:check
+npm run seed
+```
+
+Skrypt aktualizuje wyłącznie `ingredientCategories`, `vegetables`, `pasta`, `groats` i `other`; nie nadpisuje przepisów. Ponieważ reguły produkcyjne blokują zapis z klienta, `FIREBASE_AUTH_TOKEN` musi być sekretem bazy lub administracyjnym tokenem dostępu. Sekret ustawiaj tylko lokalnie w `.env` lub `.env.seed` i nigdy nie używaj prefiksu `VITE_`.
 
 ## Netlify
 

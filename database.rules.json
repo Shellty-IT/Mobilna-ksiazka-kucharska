@@ -4,6 +4,10 @@
       ".read": true,
       ".write": false
     },
+    "ingredientCategories": {
+      ".read": true,
+      ".write": false
+    },
     "vegetables": {
       ".read": true,
       ".write": false

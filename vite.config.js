@@ -28,17 +28,13 @@ export default defineConfig({
         ],
       },
       workbox: {
+        globPatterns: ["**/*.{js,css,html,ico,png,svg,webp}"],
         navigateFallback: "/index.html",
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/pomocnik-cc6da-default-rtdb\.firebaseio\.com\/.*$/i,
             handler: "NetworkFirst",
             options: { cacheName: "recipe-data", networkTimeoutSeconds: 4, expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 7 } },
-          },
-          {
-            urlPattern: /^https:\/\/images\.unsplash\.com\/.*$/i,
-            handler: "CacheFirst",
-            options: { cacheName: "recipe-images", expiration: { maxEntries: 50, maxAgeSeconds: 60 * 60 * 24 * 30 } },
           },
         ],
       },

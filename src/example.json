@@ -1,4 +1,15 @@
 {
+  "ingredientCategories": [
+    { "id": "warzywa", "name": "Warzywa", "image": "/images/ingredient-categories/vegetables.webp" },
+    { "id": "strączki", "name": "Strączki", "image": "/images/ingredient-categories/legumes.webp" },
+    { "id": "mięso i ryby", "name": "Mięso i ryby", "image": "/images/ingredient-categories/meat-fish.webp" },
+    { "id": "nabiał", "name": "Nabiał", "image": "/images/ingredient-categories/dairy.webp" },
+    { "id": "spiżarnia", "name": "Spiżarnia", "image": "/images/ingredient-categories/pantry.webp" },
+    { "id": "sosy", "name": "Sosy", "image": "/images/ingredient-categories/sauces.webp" },
+    { "id": "zioła i dodatki", "name": "Zioła i dodatki", "image": "/images/ingredient-categories/herbs.webp" },
+    { "id": "owoce", "name": "Owoce", "image": "/images/ingredient-categories/fruit.webp" },
+    { "id": "pozostałe", "name": "Pozostałe", "image": "/images/ingredient-categories/other.webp" }
+  ],
   "recipes": [
     {
       "composition": ["Mieszanka sałat (lub jeden rodzaj)", "2 jajka", "2 pomidory", "1 puszka kukurydzy", "1 opakowane małych cebulek w occie lub 1 średnia cebula", "Porcja sosu winegret"],
@@ -364,7 +375,7 @@
       "number": 0,
       "description": "Do gotowania, należy dobrać ziemniaki tej samej wielkości lub pokroić je na podobne kawałki. Następnie trzeba je opłukać pod zimną wodą i wrzucić do gotującej się wody. Najlepiej gotować ziemniaki na średnim ogniu – gotowanie ma trwać od 20 do 30 minut. Po 20 minutach sprawdzić nożem czy są już miękkie, jeżeli nóż gładko wchodzi w ziemniaki to znak, że są już gotowe. Po ugotowaniu ziemniaków, należy je odcedzić i ewentualnie opłukać.",
       "values": "Ziemniaki obfitują w potas obniżający ciśnienie krwi oraz magnez, który jest budulcem zębów i kości, poprawia przemianę materii, łagodzi stany zmęczenia i stres. Mają też nieco wapnia, żelaza i fosforu. Dostarczają także niemal wszystkich witamin – najwięcej jest w nich witaminy C.",
-      "image": "https://www.sadowniczy.pl/pol_pl_Ziemniaki-Sunita-1kg-158462_1.jpg"
+      "image": "/images/products/vegetables/0.webp"
     },
     {
       "name": "Fasolka szparagowa",
@@ -372,7 +383,7 @@
       "description": "Aby fasolka zachowała jak największą liczbę składników odżywczych, witamin oraz minerałów – zaleca się gotować ją na parze. Dzięki gotowaniu w ten sposób, zachowa ona również pyszny smak, chrupkość, soczystość oraz kolor. Z powodzeniem można ugotować ją także we wrzącej wodzie. Przygotowaną i umytą fasolkę należy wrzucić do garnka z zimną wodą. Na 500 g fasolki potrzebne będą 2 litry wody, 1 łyżka cukru i 1 płaska łyżeczka soli. Czas gotowania fasolki szparagowej uzależniony jest od jej gatunku oraz czy jest młoda lub starsza. Krótszego czasu gotowania wymagać będzie oczywiście młodsza żółta fasolka: 5 – 15 minut. Zielona fasolka wymaga dłuższego czasu gotowania: ok. 15 – 20 minut. Fasolkę szparagową starszą, należy gotować kilka minut dłużej. W trakcie gotowania, warto sprawdzać jej miękkość. Ugotowaną fasolkę szparagową należy odcedzić na sitku.",
       "values": "Zielona szparagówka zawiera więcej witaminy A i kwasu foliowego niż żółta, dlatego jest zalecana kobietom w ciąży, cukrzykom, a także osobom z niedoborem żelaza. Natomiast żółta jest bogatsza w potas i fosfor.",
       "values2": "Dzięki zawartości witaminy C szparagówka wzmacnia system odpornościowy, który w organizmie stanowi ochronę przed większością chorób, w tym chorób nowotworowych. Świeża fasolka zawiera aglutyninę, która pełni ważną rolę w budowaniu odporności organizmu.",
-      "image": "https://gurbacka.pl/wp-content/uploads/2016/03/zielona-fasolka-szparagowa.jpg"
+      "image": "/images/products/vegetables/1.webp"
     },
     {
       "name": "Kalafior",
@@ -380,7 +391,7 @@
       "description": "Średniej wielkości kalafior, należy gotować bez przykrycia, mniej więcej 15 minut. Po 15 minutowym gotowaniu, należy sprawdzić czy kalafior jest wystarczająco miękki. Można to zrobić wbijając widelec w różyczki – jeżeli łatwo wchodzi oznacza, że już jest ugotowany. Jeżeli wolisz bardziej al dente – skróć czas gotowania.",
       "values": "Kalafior należy do grupy pokarmów roślinnych o najsilniejszym potencjale antynowotworowym. Potwierdzają to badania naukowe. Spożywanie kalafiora, a także brokułów, może zmniejszyć ryzyko rozwoju agresywnego raka prostaty - przekonują naukowcy z Ameryki Północnej i Kanady na łamach pisma \"Journal of the National Cancer Institute\". Ich zdaniem kalafiory i brokuły zawierają wiele substancji, które mogą mieć działanie przeciwnowotworowe.",
       "values2": "Również badacze z Rutgers' Ernest Mario School of Pharmac są zdania, że kalafior to skuteczna broń w profilaktyce raka prostaty, zwłaszcza w połączeniu z curry. Jak wynika z badań, występująca w tej popularnej przyprawie substancja - kurkumina - może zapobiegać rozwojowi nowotworów, zwłaszcza w połączeniu z izotiocyjanianem fenetylowym (PEITC) - substancją, która występuje w warzywach, takich jak kapusta, brukselka, kalafior, brokuły czy  rzepa.",
-      "image": "https://www.medianauka.pl/biologia/grafika/rosliny/kalafior.jpg"
+      "image": "/images/products/vegetables/2.webp"
     },
     {
       "name": "Kukurydza",
@@ -388,7 +399,7 @@
       "description": "Przygotowaną kukurydzę należy wrzucić do garnka z wrzątkiem i gotować ok. 15 minut, aż ziarna staną się miękkie. Dłuższy czas gotowania, sprawi że ziarna kukurydzy staną się twarde, łykowate i niesmaczne. Z tego samego powodu, nie należy solić wrzątku. Za to warto dodać do gotującego się wody jedną łyżeczkę cukru aby uzyskać słodszy smak kukurydzy. Ugotowaną kukurydzę należy odsączyć z wody na durszlaku i przełożyć na talerz.",
       "values": "100 g świeżych ziaren kukurydzy dostarcza organizmowi 365 kcal, a kukurydza konserwowa - ok. 100 kcal (w zależności od ilości soli i cukru w roztworze wodnym). Kukurydza ma 60-70 proc. skrobi, sporo błonnika, białko, witaminy z grupy B, a także D, E, K oraz prowitaminę A. Kukurydza to również dobre źródło składników mineralnych.",
       "values2": "Selen wraz z witaminą E i beta-karotenem broni nas przed działaniem wolnych rodników, zwiększa odporność i przedłuża młodość. Ma dwa silne antyoksydanty należące do karotenoidów: luteinę i zeaksantynę, które pomagają chronić plamkę żółtą oka przed zwyrodnieniem.",
-      "image": "https://images.unsplash.com/photo-1551754655-cd27e38d2076?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+      "image": "/images/products/vegetables/3.webp"
     },
     {
       "name": "Brokuł",
@@ -396,7 +407,7 @@
       "description": "W garnku zagotowujemy sporą ilość wody, którą solimy i doprawiamy odrobiną cukru (na 2,5l wody płaska łyżeczka soli i spora szczypta cukru). Na wrzątek wrzucamy umyte różyczki brokuła. Warzywa gotujemy ok 5-7 min (liczone od momentu aż woda zacznie wrzeć).",
       "values": "Brokuły wykazują właściwości antynowotworowe dzięki zwartości sulforafanu - silnego przeciwutleniacza, który blokuje powstawanie nowotworowych mutacji DNA oraz ułatwia likwidację komórek tworzącego się nowotworu. Sulforafan może uchronić m.in. przed rakiem prostaty, piersi, płuc i jelita grubego, jednak tylko pod warunkiem, że brokuły będą odpowiednio ugotowane - zaznaczają naukowcy z University of Illinois na łamach \"Journal of Food Science\".",
       "values2": "Brokuły mogą na jakiś czas złagodzić objawy autyzmu - przekonują naukowcy ze Szpitala Dziecięcego MassGeneral i Uniwersytetu Medycznego Johna Hopkinsa (USA) na łamach czasopisma \"PNAS\". Wszystko dzięki zawartości sulforafanu, który chroni przed stanem zapalnym wywoływanym przez stres oksydacyjny, charakterystyczny dla osób z autyzmem. Jak twierdzą badacze, terapia z zastosowaniem tej substancji poprawia ogólne funkcjonowanie chorych. Jak wynika z badań, pacjenci, którzy do tej pory nie porozumiewali się głosem, mową ani gestem, stali się bardziej komunikatywni (np. podają drugiemu człowiekowi rękę). Ograniczone zostały także ich dziwne zachowania. Niestety, efekty terapii są tylko czasowe i ustępują wraz z jej zakończeniem.",
-      "image": "https://res.cloudinary.com/dj484tw6k/f_auto,q_auto,fl_progressive,c_pad,b_white,w_320,h_320/dpr_2/v1499864921/be/4042.jpg"
+      "image": "/images/products/vegetables/4.webp"
     },
     {
       "name": "Kapusta",
@@ -404,7 +415,7 @@
       "description": "Pokrojoną kapustę wkładamy do małej ilości zimnej wody, jeżeli zależy nam na tym, żeby jej smak i aromat przeszły do wywaru (np. gotując zupę lub barszcz). Jeżeli gotujemy kapustę jako osobne danie, wrzucamy poszatkowaną kapustę do gotującej się wody – dzięki temu zachowa najwięcej swoich soków. Kapustę gotujemy przez 15–25 minut. Czas zaczynamy odliczać od momentu ponownego zagotowania się wody. Zaraz po nastawieniu solimy (ok. 2 łyżeczki na 1 litr wody). Warto również lekko posłodzić (ok. 1 łyżeczka na 1 litr wody). Po zagotowaniu odkrywamy garnek, żeby ulotniły się olejki o nieprzyjemnym zapachu, potem dogotowujemy pod przykryciem. Aby sprawdzić, czy kapusta jest już ugotowana, można wbić widelec lub nóż. Jeżeli wchodzi miękko, jest gotowa.",
       "values": "Szczególne właściwości lecznicze ma sok z kapusty. Picie go wzmacnia odporność, pomaga na anemię i obrzęki spowodowane nadmiernym zatrzymywaniem płynów w organizmie. Po trzech tygodniach codziennej szklanki soku te ostatnie znikają bez śladu.",
       "values2": "Kapuściany sok to także uznawane nawet przez medycynę lekarstwo na wrzody żołądka. W ludowej praktyce stosuje się okłady z soku lub liści na bóle reumatyczne i neuralgiczne oraz przy leczeniu ranek i wrzodów. Coraz głośniej mówi się o właściwościach przeciwnowotworowych kapusty - obecne w niej związki chemiczne (indole) pomagają w profilaktyce raka o podłożu hormonalnym: raka jajników, piersi, prostaty i jąder.",
-      "image": "https://ocdn.eu/images/pulscms/MWI7MDA_/07fe19dc07263744fc6950375ca85b0b.jpg"
+      "image": "/images/products/vegetables/5.webp"
     },
     {
       "name": "Kapusta kiszona",
@@ -412,7 +423,7 @@
       "description": "Kapustę kiszoną włożyć do garnka, zalać niewielką ilością wody, dodać listek laurowy, angielskie ziele, owoce jałowca i gotować pod przykryciem około 15 minut.",
       "values": "Kapusta kiszona zawiera witaminę C, magnez, potas, żelazo i wapń. Jest także świetnym źródłem witamin z grupy B, witaminy A, E oraz K. Z uwagi na obecność bakterii kwasu mlekowego, powstających w procesie fermentacji, jest produktem bardzo zdrowym, zalecanym w profilaktyce chorób układu pokarmowego i dla zachowania właściwej flory bakteryjnej jelit. Jest również źródłem błonnika pokarmowego, co szczególnie przydatne jest dla osób odchudzających się lub cierpiących na zaparcia. Błonnik pozwala również obniżyć poziom cholesterolu we krwi, co zapobiega rozwojowi miażdżycy i chorób serca. ",
       "values2": "Kapustę kiszoną jest świetna dla osób mających problemy z wrzodami i nadżerkami żołądka. Wynika to z faktu, że sok z kiszonej kapusty łagodzi działanie kwasów oraz soli, dzięki czemu łagodzi tym samym dolegliwości bólowe. Sok z kiszonej kapusty działa również detoksykująco, dzięki czemu pozwala na usunięcie szkodliwych substancji z organizmu. ",
-      "image": "https://www.mojegotowanie.pl/media/cache/default_view/uploads/media/default/0001/74/9cf9ef0356b3c1d9f02f0f54b7253d39633dc34c.jpeg"
+      "image": "/images/products/vegetables/6.webp"
     },
     {
       "name": "Burak",
@@ -420,14 +431,14 @@
       "description": "Bez obierania układam buraki w dużym garnku i dopełniam wodą. Całe buraki powinny być przykryte. Gotuję przez około 40-60 minut zależnie od wielkości. Małe buraki będą ugotowane po 30 minutach duże i bardzo duże wymagają więcej czasu.",
       "values": "Mimo że buraki nie są bogatym źródłem żelaza, to wspaniały środek krwiotwórczy, dawno uznany przez medycynę naturalną. Zapobiega anemii, co więcej, wspomaga leczenie białaczki. Zawarte w burakach barwniki należą do bardzo silnych przeciwutleniaczy i czterokrotnie zwiększają przyswajanie tlenu przez komórki. Wspomagają więc układ krwionośny.",
       "values2": "Kwas foliowy, w który obfitują buraki, nie tylko warunkuje prawidłowy rozwój płodu, ale też pomaga usunąć z krwiobiegu homocysteinę - jej wysoki poziom może wywołać choroby serca. Buraki pomagają unormować poziom cholesterolu, przeciwdziałają też zwapnieniom naczyń krwionośnych.",
-      "image": "https://cdn.shopify.com/s/files/1/0367/3365/articles/LYOFOOD-freeze-dried-organic-beetroot-powders-EU-01.jpg?v=1490868441"
+      "image": "/images/products/vegetables/7.webp"
     },
     {
       "name": "Marchew w całości",
       "number": 8,
       "description": "Młode marchewki gotujemy w całości, w osolonym wrzątku nie dłużej niż 10 minut (nie obieramy ich). Większe okazy pozbawiamy skórki i kroimy na 4 lub więcej części, a dopiero potem wrzucamy do gotującej się wody. Wyjmujemy, gdy są „trochę” miękkie.",
       "values": "Beta-karoten zapewnia prawidłowe funkcjonowanie wzroku, wzmacnia odporność, a także wspomaga leczenie trądziku i opóźnia pojawianie się zmarszczek. Jednak najbardziej jest znany z tego, że przyśpiesza opalanie i przedłuża efekty kąpieli słonecznych. Powszechnie uważa się, że codziennie należy pić 2 szklanki soku z marchwi, by cieszyć się skórą muśniętą słońcem. Nie należy jednak przesadzać z jego ilością, gdyż wówczas nie osiągnie się pięknej opalenizny, lecz skóra z czasem zyska marchewkowy kolor (tzw. karotenoza lub karotenemia). Poza tym nadmierne spożycie beta-karotenu oznacza, że w organizmie dochodzi do nadmiernej produkcji witaminy A, co nie jest korzystne dla zdrowia. Witamina A w zbyt dużych ilościach jest toksyczna i może doprowadzić do powiększenia wątroby, nadmiernej pobudliwości, chorób skóry oraz zaburzeń ze strony wzroku.",
-      "image": "https://www.carrefour.pl/images/product/org/marchew-luz-7dffrt.jpg"
+      "image": "/images/products/vegetables/8.webp"
     },
     {
       "name": "Bób",
@@ -435,7 +446,7 @@
       "description": "Umyty pod bieżącą wodą bób umieść w garnku i zalej wodą (której powinno być dwa razy więcej niż bobu). Dosyp płaską łyżeczkę cukru. Gdy woda zacznie się gotować, dosyp szczyptę soli i gotuj pod przykryciem na średnim ogniu około 15–20 minut (aż ziarna bobu zmiękną, a skórka stanie się pomarszczona).",
       "values": "Bób może pomóc kontrolować wagę, ponieważ spowalnia proces trawienia i na długo daje uczucie sytości. Ponadto jest bogaty w kwas foliowy i witaminy z grupy B - substancje niezbędne do prawidłowego funkcjonowania układu nerwowego. W związku z tym bób pomoże przetrwać kryzys w czasie odchudzania.",
       "values2": "Bób jest pomocny w leczeniu zarówno niedokrwistości mikrocytarnej - będącej konsekwencją niedoboru żelaza, jak i i anemii megaloblastycznej, spowodowanej niedoborem kwasu foliowego i witaminy B12.",
-      "image": "https://www.guiltfree.pl/blog/wp-content/uploads/2016/05/kalorie-b%C3%B3b.jpg"
+      "image": "/images/products/vegetables/9.webp"
     },
     {
       "name": "Fasola",
@@ -443,7 +454,7 @@
       "description": "Nasiona moczymy 1–2 godziny w bardzo gorącej wodzie, w tym czasie kilka razy dolewamy wrzątku. Następnie wylewamy wodę, fasolę zalewamy świeżą wodą i gotujemy dopóki nie zmięknie. Fasolę można też zalać zimną wodą, szybko zagotować, odcedzić, znów zalać wodą i gotować na średnim ogniu dopóki nie będzie gotowa.",
       "values": "Fasola ma też lekkostrawną skrobię i substancje hamujące rozrost tkanek nowotworowych (inhibitory proteazy), a także rozpuszczalny błonnik, który pomaga usuwać z organizmu nadmiar cholesterolu. Niestety ma także wady - powoduje wzdęcia i gazy.",
       "values2": "Niestety fasola z puszki, podobnie jak groszek czy kukurydza, to niezbyt zdrowy wybór. Wnętrze puszek pokrywane jest bisfenolem (BPA). BPA ma budowę zbliżoną do żeńskiego hormonu płciowego – estrogenu, dlatego może oddziaływać na funkcjonowanie układu hormonalnego.",
-      "image": "https://www.gryczanka.pl/images/3059af6a593ffa6bfb6c8ccb28a4049e.jpg"
+      "image": "/images/products/vegetables/10.webp"
     },
     {
       "name": "Groch",
@@ -451,7 +462,7 @@
       "description": "Groch zagotowujemy, zdejmujemy pianę, zmniejszamy granie. Gotujemy ok 25 min dla grochu wcześniej moczonego lub ok 45 min dla grochu suchego – do momentu aż groch zacznie się rozpadać. Groch cały gotujemy dwa razy dłużej postępują ze wszystkim jak wyżej.",
       "values": "Groch jest przede wszystkim dobrym źródłem białka. Dostarcza też składniki mineralne, takie jak żelazo, wapń, fosfor, magnez, potas. Poza tym zawiera witaminy z grupy B, które chronią układ nerwowy i pomagają zapobiegać stanom lękowym i depresji oraz łagodzą skutki stresu.",
       "values2": "Groch, a konkretnie proteiny (białka) w nim zawarte, mogą pomóc osobom zmagającym się z nadciśnieniem tętniczym i przewlekłą chorobą nerek, przekonują kanadyjscy naukowcy z University of Manitoba. Jak czytamy na łamach \"Journal of Agricultural and Food Chemistry\"³, białko zawarte w grochu może opóźnić lub zapobiec zaburzeniom funkcji nerek u osób z nadciśnieniem. Z kolei tym, którzy cierpią na przewlekłą chorobę nerek, białko pomoże uregulować ciśnienie, dzięki czemu osoby te będą mogły żyć dłużej.",
-      "image": "https://www.badapak.pl/images/items/4/groch-ziarno_top.jpg"
+      "image": "/images/products/vegetables/11.webp"
     },
     {
       "name": "Jarmuż",
@@ -459,7 +470,7 @@
       "description": "Liście jarmużu myjemy i wycinamy z nich grube, łykowate łodygi. Kroimy je na kawałki i obgotujemy kilka minut w osolonej wodzie. Nie dłużej, bo straci swój piękny kolor i wartości. Tak przygotowane obsmażamy na maśle z ulubionymi dodatkami - czosnkiem, jajkiem, czy suszonymi pomidorami.",
       "values": "Jarmuż zwiera karotenoidy (beta karoten, luteinę, zeaksantynę) - przeciwutleniacze, które również hamują szkodliwe procesy oksydacyjne, a co za tym idzie - mogą zapobiegać rozwojowi chorób nowotworowych. Dowiedziono, że spożycie karotenoidów może obniżyć występowanie takich nowotworów, jak: rak jamy ustnej, krtani, przełyku i pęcherza moczowego.",
       "values2": "Jarmuż jest także skarbnicą innej antynowotworowej substancji - witaminy K, która również hamuje rozwój niektórych nowotworów, m.in. nowotworów piersi, nowotworów jajnika, okrężnicy, pęcherzyka żółciowego, wątroby. Jak przekonują specjaliści z Instytutu Żywności i Żywienia, jej niedobór może być przyczyną zwiększonego ryzyka rozwoju nowotworów.",
-      "image": "https://cdn.galleries.smcloud.net/t/galleries/gf-GYvF-QRw9-NjKD_jarmuz-wlasciwosci-i-wartosci-odzywcze-przepisy-na-dania-z-jarmuzu-664x442-nocrop.jpg"
+      "image": "/images/products/vegetables/12.webp"
     }
   ],
   "other" : [
@@ -467,7 +478,7 @@
       "name": "Jajka",
       "number": 0,
       "description": "Czas gotowania jajek powinien być liczony od momentu zagotowania się wody. Na twardo gotuje się je od 8 do 10 minut, w zależności od ich rozmiaru. Zbyt długie trzymanie ich w gorącej wodzie, źle wpłynie na smak i spowoduje powstawanie nieestetycznych przebarwień na żółtku. Po ugotowaniu zanurz jajka w zimnej wodzie.",
-      "image": "https://hpba.pl/wp-content/uploads/2013/01/jajka.jpg",
+      "image": "/images/products/other/0.webp",
       "values2": "Jajka są przede wszystkim źródłem pełnowartościowego białka, łatwo przyswajalnego przez organizm. To białko wzorcowe, zawierające wszystkie aminokwasy, w tym niezbędne, których organizm nie potrafi sam wyprodukować, i to w odpowiednich ilościach.",
       "values": "Jajka nie dość, że są niskokaloryczne, to zawierają 13 witamin i minerałów, wzorcowe białko i antyoksydanty. Są źródłem wielu witamin m. in. A, E, D, K oraz B2, B9 i B12, kwasu pantotenowego oraz składników mineralnych: fosforu, potasu, wapnia, żelaza, cynku i magnezu, selenu i jodu."
     },
@@ -475,7 +486,7 @@
       "name": "Ryż",
       "number": 1,
       "description": "Przed gotowaniem trzeba ryż wypłukać. Robimy to do czasu, aż woda stanie się czysta, i dopiero wtedy gotujemy. Najpopularniejsza metoda gotowania ryżu polega na absorpcji wody przez ryż podczas gotowania. Wsyp np. jedną szklankę ryżu, zalej 2 szklankami zimnej osolonej wody. Zamieszaj i zagotuj. Następnie przykryj garnek pokrywką w taki sposób, aby para mogła swobodnie wychodzić, zmniejsz ogień i gotuj. Gdy ryż wchłonie już całą wodę, a na jego powierzchni zaczną tworzyć się tzw. kratery, całkowicie przykryj garnek, zmniejsz ogień i gotuj jeszcze ok. 12-15 minut.",
-      "image": "https://www.gryczanka.pl/images/078bac20e1211525e56b129ad1f38a11.jpg",
+      "image": "/images/products/other/1.webp",
       "values": "Jest źródłem węglowodanów, białka (niepełnowartościowego), tłuszczów wielonienasyconych, błonnika. Obfituje w magnez, cynk, fosfor, żelazo, mangan, miedź, selen. Posiada witamin z grupy B (B1, B2, PP, B5, B6, kwas foliowy)."
     }
     ],
@@ -484,31 +495,31 @@
       "name": "Kasza bulgur",
       "number": 0,
       "description": "1/2 szklanki kaszy bulgur wsypać do garnka i wypłukać 2 - 3 krotnie letnią wodą, odcedzić. Wlać świeżą wodę w ilości 1 szklanki, dodać szczyptę soli i zagotować pod przykryciem. Zmniejszyć ogień i gotować przez ok. 15 minut aż kasza będzie miękka i wchłonie cały płyn.",
-      "image":"https://www.badapak.pl/images/items/316/kasza-bulgur-z-calego-ziarna_big.jpg"
+      "image": "/images/products/groats/0.webp"
     },
     {
       "name": "Kasza pęczak",
       "number": 1,
       "description": "Pęczak w garnku zalewamy 3-3,5 szklankami wrzątku, solimy. Możemy dodać tu też łyżkę dobrej oliwy czy masła dla smaku. Kaszę zagotowujemy, zmniejszamy grzanie do minimum i gotujemy na minimalnym ogniu, pod przykrywką aż pęczak wypije wodę, zmięknie i rozklei się.",
-      "image": "https://i.wpimg.pl/O/555x385/i.wp.pl/a/f/kuchnia/58011757/-EDYSK_2-galerie_nowe-kasze-kasza_peczak136191176.jpg"
+      "image": "/images/products/groats/1.webp"
     },
     {
       "name": "Kasza jęczmienna",
       "number": 2,
       "description": "Jedną szklankę kaszy łamanej ( wiejskiej, perłowej lub mazurskiej) wsypuję na sito, dokładnie płuczę pod kranem, aż zacznie lecieć czysta woda. Do garnka wlewam 2 i 1/3 szklanki wody. Solę dolewam łyżkę lub dwie oleju i zagotowuje pod przykryciem. Wrzucam kaszę, mieszam i przykrywam. Od ponownego zagotowania wody zmniejszam gaz na malutki. Gotuję pod przykryciem około 15-20 minut zależnie od gramatury kaszy. Nie mieszam w trakcie. Wyłączam gaz zostawiam kaszę jeszcze na jakieś 15 minut, aby wciągnęła całą wodę i się wyprażyła na sypko.",
-      "image": "https://www.badapak.pl/images/items/39/kasza-jeczmienna-gruba-perlowa-2_big.jpg"
+      "image": "/images/products/groats/2.webp"
     },
     {
       "name": "Kasza gryczana ",
       "number": 3,
       "description": "Proporcje mają się następująco: na jedną szklankę kaszy (250 g) należy odmierzyć 1 i ¾ szklanki wody. Do garnka wlewamy wodę i dodajemy łyżkę oleju i odrobinę soli. Gdy woda zacznie wrzeć, wsypujemy kaszę i czekamy, aż całość znowu się zagotuje. Grykę należy gotować jeszcze przez ok. 7 minut pod przykryciem, na zmniejszonym ogniu. Aby ziarna nie przywarły do spodu, od czasu do czasu warto zamieszać. Po wchłonięciu całej wody warto odstawić garnek na ok. 30 minut.",
-      "image": "https://www.aromatika.com.pl/userdata/public/gfx/a621a2fc889864b0edba2670e3c7eece.jpg"
+      "image": "/images/products/groats/3.webp"
     },
     {
       "name": "Kasza kuskus",
       "number": 4,
       "description": "Czas gotowania jajek powinien być liczony od momentu zagotowania się wody. Na twardo gotuje się je od 8 do 10 minut, w zależności od ich rozmiaru. Zbyt długie trzymanie ich w gorącej wodzie, źle wpłynie na smak i spowoduje powstawanie nieestetycznych przebarwień na żółtku. Po ugotowaniu zanurz jajka w zimnej wodzie.",
-      "image": "https://www.aromatika.com.pl/environment/cache/images/500_500_productGfx_1bda7819751c0f98760a4c9cc4b16816.jpg"
+      "image": "/images/products/groats/4.webp"
     }
   ],
   "pasta" : [
@@ -516,57 +527,57 @@
       "name": "Spaghetti - długie nitki",
       "number": 0,
       "description": "Makaron gotujemy bez przykrycia. Jeżeli chcemy ugotować go al dente (lekko twardy) czas wynosi 7 – 9 minut (zależy to od grubości ciasta). Natomiast jeżeli chcemy uzyskać makaron lekko rozgotowany trzymamy go troszkę dłużej, około 9 – 11 minut.",
-      "image": "https://cdn.shopify.com/s/files/1/0367/4642/8547/products/makaron-spaghetti.jpg?v=1607142183",
+      "image": "/images/products/pasta/0.webp",
       "values": "Gotowanie makaronu spaghetti po raz pierwszy może wydawać się skomplikowane, ponieważ długie nitki nie mieszczą się do garnka.\n Makaron wkładaj tylko do wrzącej wody. \n Długi makaron spaghetti nie zmieści się w całości do garnka, wkładaj go więc stopniowo.\n    Najpierw zanurz we wrzątku tylko część makaronu. Kiedy część umieszczona w wodzie zmięknie, wkładaj spaghetti coraz głębiej, aż cały makaron znajdzie się w wodzie.\n    Mieszaj makaron przez cały czas gotowania.\n"
     },
     {
       "name": "Tagliatelle – gniazda, wstążki",
       "number": 1,
       "description": "Na 100g makaronu użyć 1 litr osolonej wody. Do wrzącej wody należy wrzucić makaron i dokładnie zamieszać. Gotować 9 minut, a następnie odcedzić. Makaron jest ugotowany \"al dente\" i wyśmienicie smakuje.",
-      "image": "https://winotoskanii.pl/pol_pl_Barilla-Emiliane-Tagliatelle-n-174-makaron-jajeczny-250g-1109_2.jpg"
+      "image": "/images/products/pasta/1.webp"
 
     },
     {
       "name": "Fettuccine - wstążki",
       "number": 2,
       "description": "Wrzucamy makaron fettuccine do gotującej się osolonej wody (1 litr wody na każde 100g makaronu, 1 łyżeczka soli na 2 litry wody). Od razu mieszamy, żeby zapobiec przyklejeniu się makaronu do ścianek garnka. W zależności od producenta, czas gotowania fettuccine wynosi pomiędzy 8 a 10 minut.",
-      "image": "https://thumbs.dreamstime.com/b/fettuccine-w%C5%82oski-makaron-odizolowywaj%C4%85cy-na-bia%C5%82ym-tle-87208836.jpg"
+      "image": "/images/products/pasta/2.webp"
     },
     {
       "name": "Fusilli - świderki",
       "number": 3,
       "description": "Wrzucamy makaron świderki do gotującej się osolonej wody (1 litr wody na każde 100g makaronu, 1 łyżeczka soli na 2 litry wody). Od razu mieszamy, żeby zapobiec przyklejeniu się makaronu do ścianek garnka. W zależności od producenta, czas gotowania fusilli wynosi między 7 a 10 minut.",
-      "image": "https://thumbs.dreamstime.com/b/stos-fusilli-z%C5%82oty-makaron-27443188.jpg"
+      "image": "/images/products/pasta/3.webp"
     },
     {
       "name": "Penne – rurki",
       "number": 4,
       "description": "Wrzucamy makaron penne do gotującej się osolonej wody (1 litr wody na każde 100g makaronu, 1 łyżeczka soli na 2 litry wody). Od razu mieszamy, żeby zapobiec przyklejeniu się makaronu do ścianek garnka. W zależności od producenta, czas gotowania penne wynosi pomiędzy 8 a 12 minut.",
-      "image": "https://thumbs.dreamstime.com/b/penne-w%C5%82oski-surowy-makaron-bia%C5%82y-t%C5%82o-28099368.jpg"
+      "image": "/images/products/pasta/4.webp"
     },
     {
       "name": "Conchiglioni – muszle",
       "number": 5,
       "description": "Wrzucamy makaron conchiglie do gotującej się i osolonej wody (1 litr wody na każde 100g makaronu, 1 łyżeczka soli na 2 litry wody). Od razu mieszamy, żeby zapobiec przyklejeniu się makaronu do ścianek garnka. W zależności od producenta, czas gotowania muszelek wynosi pomiędzy 7 a 10 minut.",
-      "image": "https://thumbs.dreamstime.com/b/conchiglioni-makaronu-porci-rigati-10556076.jpg"
+      "image": "/images/products/pasta/5.webp"
     },
     {
       "name": "Canneloni - duże rurki",
       "number": 6,
       "description": "Wrzucamy makaron cannelloni do gotującej się, osolonej wody (1 litr wody na każde 100g makaronu, 1 łyżeczka soli na 2 litry wody). Od razu mieszamy, żeby zapobiec przyklejeniu się makaronu do ścianek garnka. Nie przykrywamy garnka. Cannelloni gotujemy przez 3–4 minuty. Czas zaczynamy odliczać od momentu ponownego zagotowania się wody. Mieszamy co 2 minuty.",
-      "image": "https://thumbs.dreamstime.com/b/cannelloni-makaron-w-stercie-nad-bia%C5%82ym-t%C5%82em-30245306.jpg"
+      "image": "/images/products/pasta/6.webp"
     },
     {
       "name": "Lasagne - płaty",
       "number": 7,
       "description": "Do przygotowania lasagne jedni używają surowego makaronu, inni najpierw lekko go obgotowują. I czasem narzekają, że podczas gotowania płaty ciasta się sklejają. Tymczasem wystarczy je przez 2-3 minuty obgotować w lekko osolonej wodzie z dodatkiem oleju. I robić to partiami, w szerokim rondlu lub w wysokiej patelni.",
-      "image": "https://wszystkoojedzeniu.pl/site/assets/files/65729/makaron-lasagne.650x0.jpg"
+      "image": "/images/products/pasta/7.webp"
     },
     {
       "name": "Orzo - ryż",
       "number": 8,
       "description": "Na każde 100 g makaronu należy użyć 1 l wody i 10 g soli. Wrzucić makaron do osolonej, wrzącej wody i zamieszać. Gotować 13 do 15 minut, od czasu do czasu mieszając.",
-      "image": "https://thumbs.dreamstime.com/b/rozsypisko-surowy-orzo-makaron-57299372.jpg"
+      "image": "/images/products/pasta/8.webp"
     }
   ]
 }

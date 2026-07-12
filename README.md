@@ -65,6 +65,8 @@ npm run dev      # serwer deweloperski
 npm test         # testy algorytmu wyszukiwania
 npm run build    # produkcyjny build i service worker
 npm run preview  # podgląd katalogu dist
+npm run seed:check # walidacja danych i lokalnych plików WebP
+npm run seed     # zapis zdjęć kategorii i produktów do Firebase
 ```
 
 Ostatnia walidacja redesignu: 9 testów jednostkowych, poprawny build PWA, Lighthouse 100/100 dla dostępności i dobrych praktyk oraz 0 podatności w produkcyjnych zależnościach.

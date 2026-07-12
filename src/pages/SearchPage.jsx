@@ -8,7 +8,7 @@ import {
   filterRecipesByName,
   findRecipesByIngredients,
 } from "../lib/search";
-import { getRecipes } from "../services/catalog";
+import { getIngredientCategories, getRecipes } from "../services/catalog";
 import { useCatalog } from "../hooks/useCatalog";
 
 const categoryOrder = ["warzywa", "strączki", "mięso i ryby", "nabiał", "spiżarnia", "sosy", "zioła i dodatki", "owoce", "pozostałe"];
@@ -48,6 +48,7 @@ function RecipeCard({ result }) {
 
 export function SearchPage() {
   const { data: recipes, error, loading } = useCatalog(getRecipes, []);
+  const { data: categoryMedia } = useCatalog(getIngredientCategories, []);
   const [selected, setSelected] = useState([]);
   const [matchMode, setMatchMode] = useState("ideas");
   const [ingredientQuery, setIngredientQuery] = useState("");
@@ -109,9 +110,15 @@ export function SearchPage() {
 
           <div className="ingredient-scroll">
             {loading && <Loading label="Ładowanie składników" />}
-            {categories.map((category) => (
+            {categories.map((category) => {
+              const categoryDetails = categoryMedia?.find(({ id }) => id === category);
+              return (
               <fieldset className="ingredient-group" key={category}>
-                <legend>{category}</legend>
+                <legend className="sr-only">{category}</legend>
+                <div className="ingredient-group-heading" aria-hidden="true">
+                  {categoryDetails?.image && <img src={categoryDetails.image} alt="" loading="lazy" decoding="async" />}
+                  <span>{categoryDetails?.name || category}</span>
+                </div>
                 <div className="chip-grid">
                   {visibleIngredients.filter((ingredient) => ingredient.category === category).map((ingredient) => (
                     <label className={selected.includes(ingredient.id) ? "ingredient-chip is-selected" : "ingredient-chip"} key={ingredient.id}>
@@ -121,7 +128,8 @@ export function SearchPage() {
                   ))}
                 </div>
               </fieldset>
-            ))}
+              );
+            })}
             {!loading && visibleIngredients.length === 0 && <p className="no-ingredients">Nie znaleźliśmy takiego składnika.</p>}
           </div>
         </aside>

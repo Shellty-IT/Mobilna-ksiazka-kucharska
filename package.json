@@ -13,6 +13,8 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "seed": "node scripts/seed-images.mjs",
+    "seed:check": "node scripts/seed-images.mjs --dry-run",
     "test": "vitest run"
   },
   "engines": {
