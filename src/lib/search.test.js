@@ -40,6 +40,18 @@ describe("ingredient search", () => {
     expect(missingIngredients).toContain("Sos serowy");
   });
 
+  it("formats compact multi-word ingredient identifiers with their full labels", () => {
+    const catalog = buildIngredientCatalog([{
+      ingredients: ["OliwaZoliwek", "SokZcytryny", "PomidoryZpuszki"],
+    }]);
+
+    expect(catalog.map(({ label }) => label)).toEqual([
+      "Oliwa z oliwek",
+      "Pomidory z puszki",
+      "Sok z cytryny",
+    ]);
+  });
+
   it("filters recipes by normalized name", () => {
     expect(filterRecipesByName(recipes, "BROKUL")).toHaveLength(1);
   });
